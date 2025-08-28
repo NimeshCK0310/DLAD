@@ -2,25 +2,40 @@
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import { motion } from "framer-motion";
+import { motion, cubicBezier } from "framer-motion"; // ✅ Correct import
 import Image from "next/image";
 
-// Define animation variants with corrected easing
+// ✅ Define animation variants with corrected easing
 const container = {
   hidden: {},
   show: { transition: { staggerChildren: 0.15 } },
 };
+
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] } }, // Standard easeOut Bezier
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: cubicBezier(0.42, 0, 0.58, 1) },
+  },
 };
+
 const fadeInLeft = {
   hidden: { opacity: 0, x: -50 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] } }, // Standard easeOut Bezier
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, ease: cubicBezier(0.42, 0, 0.58, 1) },
+  },
 };
+
 const scaleUp = {
   hidden: { opacity: 0, scale: 0.9 },
-  show: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: [0.42, 0, 0.58, 1] } }, // Standard easeOut Bezier
+  show: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.5, ease: cubicBezier(0.42, 0, 0.58, 1) },
+  },
 };
 
 export default function About() {
@@ -53,51 +68,17 @@ export default function About() {
               className="flex flex-col gap-3 items-start"
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl w-full">
-                <motion.div variants={scaleUp}>
-                  <Image
-                    src="/images/process-1.jpg"
-                    alt="Process Image 1"
-                    width={540}
-                    height={360}
-                    className="rounded-lg w-full hover:shadow-xl transition-shadow duration-300"
-                  />
-                </motion.div>
-                <motion.div variants={scaleUp}>
-                  <Image
-                    src="/images/process-2.jpg"
-                    alt="Process Image 2"
-                    width={540}
-                    height={360}
-                    className="rounded-lg w-full hover:shadow-xl transition-shadow duration-300"
-                  />
-                </motion.div>
-                <motion.div variants={scaleUp}>
-                  <Image
-                    src="/images/process-3.jpg"
-                    alt="Process Image 3"
-                    width={540}
-                    height={360}
-                    className="rounded-lg w-full hover:shadow-xl transition-shadow duration-300"
-                  />
-                </motion.div>
-                <motion.div variants={scaleUp}>
-                  <Image
-                    src="/images/process-4.jpg"
-                    alt="Process Image 4"
-                    width={540}
-                    height={360}
-                    className="rounded-lg w-full hover:shadow-xl transition-shadow duration-300"
-                  />
-                </motion.div>
-                <motion.div variants={scaleUp}>
-                  <Image
-                    src="/images/process-5.jpg"
-                    alt="Process Image 5"
-                    width={540}
-                    height={360}
-                    className="rounded-lg w-full hover:shadow-xl transition-shadow duration-300"
-                  />
-                </motion.div>
+                {["process-1.jpg", "process-2.jpg", "process-3.jpg", "process-4.jpg", "process-5.jpg"].map((img, i) => (
+                  <motion.div key={i} variants={scaleUp}>
+                    <Image
+                      src={`/images/${img}`}
+                      alt={`Process Image ${i + 1}`}
+                      width={540}
+                      height={360}
+                      className="rounded-lg w-full hover:shadow-xl transition-shadow duration-300"
+                    />
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
             <motion.div
@@ -157,42 +138,17 @@ export default function About() {
               className="flex flex-col gap-6"
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl w-full">
-                <motion.div variants={scaleUp}>
-                  <Image
-                    src="/images/process-6.jpg"
-                    alt="Process Image 6"
-                    width={540}
-                    height={360}
-                    className="rounded-lg w-full hover:shadow-xl transition-shadow duration-300"
-                  />
-                </motion.div>
-                <motion.div variants={scaleUp}>
-                  <Image
-                    src="/images/process-7.jpg"
-                    alt="Process Image 7"
-                    width={540}
-                    height={360}
-                    className="rounded-lg w-full hover:shadow-xl transition-shadow duration-300"
-                  />
-                </motion.div>
-                <motion.div variants={scaleUp}>
-                  <Image
-                    src="/images/process-8.jpg"
-                    alt="Process Image 8"
-                    width={540}
-                    height={360}
-                    className="rounded-lg w-full hover:shadow-xl transition-shadow duration-300"
-                  />
-                </motion.div>
-                <motion.div variants={scaleUp}>
-                  <Image
-                    src="/images/process-9.jpg"
-                    alt="Process Image 9"
-                    width={540}
-                    height={360}
-                    className="rounded-lg w-full hover:shadow-xl transition-shadow duration-300"
-                  />
-                </motion.div>
+                {["process-6.jpg", "process-7.jpg", "process-8.jpg", "process-9.jpg"].map((img, i) => (
+                  <motion.div key={i} variants={scaleUp}>
+                    <Image
+                      src={`/images/${img}`}
+                      alt={`Process Image ${i + 6}`}
+                      width={540}
+                      height={360}
+                      className="rounded-lg w-full hover:shadow-xl transition-shadow duration-300"
+                    />
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
           </div>
@@ -225,11 +181,7 @@ export default function About() {
               </motion.p>
             </div>
             <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                "Sketch & concept",
-                "Prototyping & Materials",
-                "Comfort testing",
-              ].map((t) => (
+              {["Sketch & concept", "Prototyping & Materials", "Comfort testing"].map((t) => (
                 <motion.div
                   key={t}
                   variants={scaleUp}
