@@ -11,22 +11,22 @@ const container = {
 };
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.1, 0.2, 0.3, 1] } },
 };
 const fadeInLeft = {
   hidden: { opacity: 0, x: -50 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.1, 0.2, 0.3, 1] } },
 };
 const scaleUp = {
   hidden: { opacity: 0, scale: 0.9 },
-  show: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } },
+  show: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: [0.1, 0.2, 0.3, 1] } },
 };
 
 export default function About() {
   return (
     <>
       <Header />
-      <main className="bg-white max-w-full mx-auto px-0 pt-4 pl-6 pr-6">
+      <main className="bg-white max-w-full mx-auto px-0 pt-4">
         {/* HERO */}
         <section className="py-14 md:py-5 bg-white">
           <motion.div
@@ -35,7 +35,7 @@ export default function About() {
             whileInView="show"
             viewport={{ once: true }}
           >
-            <h1 className="mt-4 text-6xl md:text-8xl text-gray-900 text-left  tracking-tight pl-6">
+            <h1 className="mt-4 text-10xl md:text-8xl text-gray-900 text-left tracking-tight pl-6">
               The Spark of <br /> Inspiration
             </h1>
           </motion.div>
@@ -137,7 +137,7 @@ export default function About() {
               viewport={{ once: true }}
               className="flex flex-col gap-6"
             >
-              <p className="mt-4 text-gray-700 text-5xl md:text-5xl leading-tight text-shadow-sm">
+              <p className="mt-4 text-gray-700 text-4xl md:text-5xl leading-tight text-shadow-sm">
                 Armed with a simple sketch and a challenge, Rollie Nation was
                 born. Prior to Rollie, it was believed that making a
                 lightweight, comfortable, and durable shoe wasn’t possible. We
@@ -199,7 +199,7 @@ export default function About() {
 
         <section className="relative w-full h-screen bg-white overflow-hidden flex items-center justify-center">
           <Image
-            src="/images/hero-2.jpg"
+            src="/images/hero.jpg"
             alt="Hero Image"
             fill
             className="object-contain"
