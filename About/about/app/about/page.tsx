@@ -5,21 +5,22 @@ import Footer from "../../components/Footer";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+// Define animation variants with corrected easing
 const container = {
   hidden: {},
   show: { transition: { staggerChildren: 0.15 } },
 };
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.1, 0.2, 0.3, 1] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] } }, // Standard easeOut Bezier
 };
 const fadeInLeft = {
   hidden: { opacity: 0, x: -50 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.1, 0.2, 0.3, 1] } },
+  show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] } }, // Standard easeOut Bezier
 };
 const scaleUp = {
   hidden: { opacity: 0, scale: 0.9 },
-  show: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: [0.1, 0.2, 0.3, 1] } },
+  show: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: [0.42, 0, 0.58, 1] } }, // Standard easeOut Bezier
 };
 
 export default function About() {
