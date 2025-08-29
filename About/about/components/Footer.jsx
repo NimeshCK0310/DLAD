@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion"; // Import framer-motion
-import Link from "next/link"; // Import Link from next/link
+import { motion } from "framer-motion"; 
+import Link from "next/link"; 
 
-// Define animation variants
+
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -17,7 +17,7 @@ export default function Footer() {
   return (
     <footer className="mt-16 border-t border-gray-100 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 py-10 grid grid-cols-1 md:grid-cols-4 gap-10">
-        {/* Brand + Newsletter */}
+
         <div>
           <motion.div
             variants={fadeInUp}
@@ -63,7 +63,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Help Section */}
         <div>
           <h5 className="font-semibold">Help</h5>
           <ul className="mt-3 text-gray-600 space-y-2 text-sm">
@@ -82,7 +81,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Shop Section */}
         <div>
           <h5 className="font-semibold">Shop</h5>
           <ul className="mt-3 text-gray-600 space-y-2 text-sm">
@@ -92,7 +90,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Contact Section */}
         <div>
           <h5 className="font-semibold">Contact Us</h5>
           <ul className="mt-3 text-gray-600 space-y-2 text-sm">
@@ -103,7 +100,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
       <div className="py-6 text-center text-xs text-gray-500 border-t border-gray-100">
         © {new Date().getFullYear()} Rollie Nation — Proudly Australian owned
         and operated.

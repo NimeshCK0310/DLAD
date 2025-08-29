@@ -2,10 +2,10 @@
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import { motion, cubicBezier } from "framer-motion"; // ✅ Correct import
+import { motion, cubicBezier } from "framer-motion"; 
 import Image from "next/image";
 
-// ✅ Define animation variants with corrected easing
+
 const container = {
   hidden: {},
   show: { transition: { staggerChildren: 0.15 } },
@@ -43,7 +43,7 @@ export default function About() {
     <>
       <Header />
       <main className="bg-white max-w-full mx-auto px-0 pt-4">
-        {/* HERO */}
+
         <section className="py-14 md:py-5 bg-white">
           <motion.div
             variants={fadeInLeft}
@@ -109,7 +109,6 @@ export default function About() {
           />
         </section>
 
-        {/* MISSION / CTA */}
         <section className="py-12 md:py-16 bg-white">
           <div className="bg-white p-8 md:p-12 rounded-2xl grid grid-cols-1 md:grid-cols-2 gap-8 items-start shadow-xl">
             <motion.div
@@ -198,7 +197,6 @@ export default function About() {
           </motion.div>
         </section>
 
-        {/* NEWSLETTER */}
         <section className="py-12 bg-white">
           <div className="bg-white p-8 md:p-12 rounded-xl text-center shadow-2xl max-w-4xl mx-auto">
             <h4 className="text-2xl md:text-3xl font-bold text-gray-800">Let’s stay in touch</h4>

@@ -2,10 +2,10 @@
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { motion, cubicBezier } from "framer-motion"; // ✅ Correct import
+import { motion, cubicBezier } from "framer-motion"; 
 import Image from "next/image";
 
-// ✅ Define animation variants with corrected easing
+
 const container = {
   hidden: {},
   show: { transition: { staggerChildren: 0.15 } },
@@ -109,7 +109,7 @@ export default function About() {
           />
         </section>
 
-        {/* MISSION / CTA */}
+       
         <section className="py-12 md:py-16 bg-white">
           <div className="bg-white p-8 md:p-12 rounded-2xl grid grid-cols-1 md:grid-cols-2 gap-8 items-start shadow-xl">
             <motion.div
@@ -130,6 +130,7 @@ export default function About() {
                 with you.
               </p>
             </motion.div>
+
             <motion.div
               variants={fadeInUp}
               initial="hidden"
@@ -156,7 +157,7 @@ export default function About() {
 
         <section className="relative w-full h-screen bg-white overflow-hidden flex items-center justify-center">
           <Image
-            src="/images/hero.jpg"
+            src="/images/hero-2.jpg"
             alt="Hero Image"
             fill
             className="object-contain"
@@ -170,18 +171,22 @@ export default function About() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-          >
+           >
             <div className="text-center max-w-4xl mx-auto">
+
               <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-extrabold text-gray-800 tracking-wide">
                 Designed to Precision
               </motion.h2>
+
               <motion.p variants={fadeInLeft} className="mt-6 text-xl text-gray-600 leading-relaxed">
                 It starts with a sketch and ends with rigorous comfort testing —
                 we combine design, materials, and tech.
               </motion.p>
+
             </div>
             <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {["Sketch & concept", "Prototyping & Materials", "Comfort testing"].map((t) => (
+                
                 <motion.div
                   key={t}
                   variants={scaleUp}
@@ -193,12 +198,12 @@ export default function About() {
                     steps and care.
                   </p>
                 </motion.div>
+
               ))}
             </div>
           </motion.div>
         </section>
 
-        {/* NEWSLETTER */}
         <section className="py-12 bg-white">
           <div className="bg-white p-8 md:p-12 rounded-xl text-center shadow-2xl max-w-4xl mx-auto">
             <h4 className="text-2xl md:text-3xl font-bold text-gray-800">Let’s stay in touch</h4>
