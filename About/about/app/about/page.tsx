@@ -60,15 +60,17 @@ export default function About() {
 
         <section className="py-12 md:py-1 bg-white">
           <div className="bg-white p-8 md:p-12 rounded-2xl grid grid-cols-1 md:grid-cols-2 gap-8 items-start shadow-xl">
+            
             <motion.div
               variants={fadeInUp}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
               className="flex flex-col gap-3 items-start"
-            >
+             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl w-full">
                 {["process-1.jpg", "process-2.jpg", "process-3.jpg", "process-4.jpg", "process-5.jpg"].map((img, i) => (
+                  
                   <motion.div key={i} variants={scaleUp}>
                     <Image
                       src={`/images/${img}`}
@@ -78,15 +80,17 @@ export default function About() {
                       className="rounded-lg w-full hover:shadow-xl transition-shadow duration-300"
                     />
                   </motion.div>
+
                 ))}
               </div>
             </motion.div>
+
             <motion.div
               variants={fadeInLeft}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-            >
+             >
               <p className="text-lg md:text-5xl text-gray-600 leading-relaxed text-left max-w-3xl font-medium">
                 Founder Vince Lebon has been doing shoes for a long time. After
                 a decade of designing for some of the biggest names in Aussie
@@ -111,13 +115,14 @@ export default function About() {
 
         <section className="py-12 md:py-16 bg-white">
           <div className="bg-white p-8 md:p-12 rounded-2xl grid grid-cols-1 md:grid-cols-2 gap-8 items-start shadow-xl">
+            
             <motion.div
               variants={fadeInLeft}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
               className="flex flex-col gap-6"
-            >
+             >
               <p className="mt-4 text-gray-700 text-4xl md:text-5xl leading-tight text-shadow-sm">
                 Armed with a simple sketch and a challenge, Rollie Nation was
                 born. Prior to Rollie, it was believed that making a
@@ -129,15 +134,17 @@ export default function About() {
                 with you.
               </p>
             </motion.div>
+
             <motion.div
               variants={fadeInUp}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
               className="flex flex-col gap-6"
-            >
+             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl w-full">
                 {["process-6.jpg", "process-7.jpg", "process-8.jpg", "process-9.jpg"].map((img, i) => (
+                  
                   <motion.div key={i} variants={scaleUp}>
                     <Image
                       src={`/images/${img}`}
@@ -147,6 +154,7 @@ export default function About() {
                       className="rounded-lg w-full hover:shadow-xl transition-shadow duration-300"
                     />
                   </motion.div>
+
                 ))}
               </div>
             </motion.div>
@@ -155,7 +163,7 @@ export default function About() {
 
         <section className="relative w-full h-screen bg-white overflow-hidden flex items-center justify-center">
           <Image
-            src="/images/hero.jpg"
+            src="/images/hero-2.jpg"
             alt="Hero Image"
             fill
             className="object-contain"
@@ -170,28 +178,34 @@ export default function About() {
             whileInView="show"
             viewport={{ once: true }}
           >
+
             <div className="text-center max-w-4xl mx-auto">
+              
               <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-extrabold text-gray-800 tracking-wide">
                 Designed to Precision
               </motion.h2>
+
               <motion.p variants={fadeInLeft} className="mt-6 text-xl text-gray-600 leading-relaxed">
                 It starts with a sketch and ends with rigorous comfort testing —
                 we combine design, materials, and tech.
               </motion.p>
+
             </div>
             <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {["Sketch & concept", "Prototyping & Materials", "Comfort testing"].map((t) => (
+                
                 <motion.div
                   key={t}
                   variants={scaleUp}
                   className="card p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
-                >
+                 >
                   <h3 className="font-semibold text-xl text-gray-900">{t}</h3>
                   <p className="mt-4 text-gray-600">
                     Short description about {t.toLowerCase()} describing our
                     steps and care.
                   </p>
                 </motion.div>
+
               ))}
             </div>
           </motion.div>
@@ -200,17 +214,20 @@ export default function About() {
         <section className="py-12 bg-white">
           <div className="bg-white p-8 md:p-12 rounded-xl text-center shadow-2xl max-w-4xl mx-auto">
             <h4 className="text-2xl md:text-3xl font-bold text-gray-800">Let’s stay in touch</h4>
+           
             <p className="mt-4 text-lg text-gray-600">
               Stay in the loop, with exclusive offers and product previews.
             </p>
+
             <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4 max-w-xl mx-auto">
               <input
                 className="px-6 py-3 rounded-md border border-gray-300 w-full sm:w-auto focus:outline-none focus:ring-2 focus:ring-black"
                 placeholder="Enter email..."
-              />
+               />
               <button className="px-6 py-3 rounded-md bg-black text-white hover:bg-gray-800 transition-colors duration-300">
                 Join
               </button>
+              
             </div>
           </div>
         </section>

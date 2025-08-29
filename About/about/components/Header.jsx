@@ -44,7 +44,7 @@ export default function Header() {
         initial="hidden"
         animate="show"
         className="bg-gradient-to-r from-blue-50 to-white text-black py-2 px-4 flex items-center justify-between text-sm rounded-full max-w-5xl mx-auto mt-3 shadow-sm"
-      >
+       >
         <span className="cursor-pointer hover:text-blue-600 transition-colors duration-200">&larr;</span>
         <p className="flex items-center">
           Further{" "}
