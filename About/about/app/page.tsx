@@ -62,7 +62,7 @@ export default function About() {
       y: 0,
       rotate: 0,
       transition: {
-        type: "spring",
+        type: "spring"as const,
         duration: 0.8,
         bounce: 0.3
       }
@@ -75,7 +75,7 @@ export default function About() {
     transition: {
       duration: 4,
       repeat: Infinity,
-      ease: "easeInOut"
+      ease: "easeInOut"as const
     }
   };
 
