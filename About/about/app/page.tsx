@@ -1,5 +1,7 @@
 "use client";
 
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import { motion, cubicBezier, useScroll, useTransform } from "framer-motion"; 
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
@@ -45,29 +47,6 @@ const scaleUp = {
   },
 };
 
-// Mock Header and Footer components
-const Header = () => (
-  <header className="w-full bg-white shadow-sm py-4">
-    <div className="container mx-auto px-6 flex items-center justify-between">
-      <div className="text-2xl font-bold text-gray-900">Rollie Nation</div>
-      <nav className="hidden md:flex space-x-8">
-        <a href="#" className="text-gray-600 hover:text-gray-900">Home</a>
-        <a href="#" className="text-gray-600 hover:text-gray-900">About</a>
-        <a href="#" className="text-gray-600 hover:text-gray-900">Products</a>
-        <a href="#" className="text-gray-600 hover:text-gray-900">Contact</a>
-      </nav>
-    </div>
-  </header>
-);
-
-const Footer = () => (
-  <footer className="w-full bg-gray-900 text-white py-8">
-    <div className="container mx-auto px-6 text-center">
-      <p>&copy; 2025 Rollie Nation. All rights reserved.</p>
-    </div>
-  </footer>
-);
-
 export default function About() {
   // Enhanced image variants for staggered layout
   const imageVariants = {
@@ -100,73 +79,73 @@ export default function About() {
     }
   };
 
-  // First section image data with fixed positioning
+  // First section image data (matching your screenshot)
   const firstSectionImages = [
     { 
-      id: 1,
+      src: "process-1.jpg", 
       alt: "Founder Story 1",
-      className: "w-28 h-36 rounded-xl shadow-lg object-cover bg-gradient-to-br from-blue-200 to-purple-200",
-      position: "top-4 left-12",
+      className: "w-28 h-36 rounded-xl shadow-lg",
+      position: "absolute top-4 left-12",
       delay: 0
     },
     { 
-      id: 2,
+      src: "process-2.jpg", 
       alt: "Founder Story 2", 
-      className: "w-24 h-32 rounded-lg shadow-md object-cover bg-gradient-to-br from-purple-200 to-pink-200",
-      position: "top-20 right-8",
+      className: "w-24 h-32 rounded-lg shadow-md",
+      position: "absolute top-20 right-8",
       delay: 0.2
     },
     { 
-      id: 3,
+      src: "process-3.jpg", 
       alt: "Founder Story 3",
-      className: "w-36 h-28 rounded-2xl shadow-xl object-cover bg-gradient-to-br from-teal-200 to-blue-200",
-      position: "top-48 left-4",
+      className: "w-36 h-28 rounded-2xl shadow-xl",
+      position: "absolute top-48 left-4",
       delay: 0.4
     },
     { 
-      id: 4,
+      src: "process-4.jpg", 
       alt: "Founder Story 4",
-      className: "w-32 h-40 rounded-lg shadow-lg object-cover bg-gradient-to-br from-green-200 to-teal-200",
-      position: "top-64 right-12",
+      className: "w-32 h-40 rounded-lg shadow-lg",
+      position: "absolute top-64 right-12",
       delay: 0.6
     },
     { 
-      id: 5,
+      src: "process-5.jpg", 
       alt: "Founder Story 5",
-      className: "w-28 h-28 rounded-full shadow-md object-cover bg-gradient-to-br from-orange-200 to-red-200",
-      position: "bottom-12 left-20",
+      className: "w-28 h-28 rounded-full shadow-md",
+      position: "absolute bottom-12 left-20",
       delay: 0.8
     }
   ];
 
-  // Second section image data with fixed positioning
+  // Second section image data (right side)
   const secondSectionImages = [
     { 
-      id: 6,
+      src: "process-6.jpg", 
       alt: "Brand Journey 1",
-      className: "w-32 h-32 rounded-full shadow-lg object-cover bg-gradient-to-br from-indigo-200 to-purple-200",
-      position: "top-8 right-16",
+      className: "w-32 h-32 rounded-full shadow-lg",
+      position: "absolute top-8 right-16",
       delay: 0
     },
     { 
-      id: 7,
+      src: "process-7.jpg", 
       alt: "Brand Journey 2", 
-      className: "w-28 h-36 rounded-lg shadow-md object-cover bg-gradient-to-br from-cyan-200 to-blue-200",
-      position: "top-24 left-8",
+      className: "w-28 h-36 rounded-lg shadow-md",
+      position: "absolute top-24 left-8",
       delay: 0.2
     },
     { 
-      id: 8,
+      src: "process-8.jpg", 
       alt: "Brand Journey 3",
-      className: "w-36 h-28 rounded-xl shadow-xl object-cover bg-gradient-to-br from-emerald-200 to-teal-200",
-      position: "top-56 right-4",
+      className: "w-36 h-28 rounded-xl shadow-xl",
+      position: "absolute top-56 right-4",
       delay: 0.4
     },
     { 
-      id: 9,
+      src: "process-9.jpg", 
       alt: "Brand Journey 4",
-      className: "w-30 h-38 rounded-2xl shadow-lg object-cover bg-gradient-to-br from-rose-200 to-pink-200",
-      position: "bottom-16 left-12",
+      className: "w-30 h-38 rounded-2xl shadow-lg",
+      position: "absolute bottom-16 left-12",
       delay: 0.6
     }
   ];
@@ -192,16 +171,19 @@ export default function About() {
   // Data for the interactive section
   const steps = [
     {
+      image: "hero-2.jpg",
       title: "It starts with a sketch",
       subtitle: "beautifully designed and wholly unique that reimagines the idea of what a shoe can be.",
       progress: 0.33
     },
     {
+      image: "hero-3.png", 
       title: "We then take the latest technology and marry it with technical design",
       subtitle: "to create a wearing experience like no other.",
       progress: 0.66
     },
     {
+      image: "hero-4.png",
       title: "We then take the latest technology and marry it with technical design", 
       subtitle: "to create a wearing experience like no other.",
       progress: 1
@@ -213,44 +195,38 @@ export default function About() {
   return (
     <>
       <Header />
-      <main className="bg-white w-full min-h-screen overflow-hidden">
-        
-        {/* HERO SECTION - Fixed alignment */}
-        <section className="py-16 md:py-24 bg-white relative min-h-[60vh] flex items-center">
-          <div className="container mx-auto px-6 lg:px-8">
-            <motion.div
-              variants={fadeInLeft}
-              initial="hidden"
-              whileInView="show"
+      <main className="bg-white max-w-full mx-auto px-0 pt-4 overflow-hidden">
+        {/* HERO */}
+        <section className="py-14 md:py-5 bg-white relative">
+          <motion.div
+            variants={fadeInLeft}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="relative z-10"
+          >
+            <motion.h1 
+              className="mt-4 text-6xl md:text-8xl lg:text-9xl text-gray-900 text-left tracking-tight pl-6 font-bold pt-30"
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative z-10 max-w-6xl"
+              transition={{ duration: 1.2, ease: "easeOut" }}
             >
-              <motion.h1 
-                className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-gray-900 leading-[0.9] tracking-tight font-bold"
-                initial={{ opacity: 0, y: 100 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.2, ease: "easeOut" }}
+              The Spark of <br /> 
+              <motion.span
+                className="bg-gradient-to-r from-blue-600 via-purple-600 to-teal-500 bg-clip-text text-transparent"
+                animate={{ 
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] 
+                }}
+                transition={{ 
+                  duration: 4, 
+                  repeat: Infinity 
+                }}
               >
-                The Spark of <br /> 
-                <motion.span
-                  className="bg-gradient-to-r from-blue-600 via-purple-600 to-teal-500 bg-clip-text text-transparent inline-block"
-                  style={{
-                    backgroundSize: "200% 100%"
-                  }}
-                  animate={{ 
-                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] 
-                  }}
-                  transition={{ 
-                    duration: 4, 
-                    repeat: Infinity 
-                  }}
-                >
-                  Inspiration
-                </motion.span>
-              </motion.h1>
-            </motion.div>
-          </div>
+                Inspiration
+              </motion.span>
+            </motion.h1>
+          </motion.div>
           
           {/* Background decorative elements for hero */}
           <motion.div 
@@ -267,203 +243,200 @@ export default function About() {
           />
         </section>
 
-        {/* FIRST ENHANCED SECTION - FOUNDER STORY - Fixed grid alignment */}
+        {/* FIRST ENHANCED SECTION - FOUNDER STORY */}
         <section className="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
           <div className="container mx-auto px-6 lg:px-8">
             <motion.div 
-              className="bg-white/90 backdrop-blur-sm p-8 md:p-16 rounded-3xl shadow-2xl border border-gray-100 relative overflow-hidden"
+              className="bg-white/90 backdrop-blur-sm p-8 md:p-16 rounded-3xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center shadow-2xl border border-gray-100 relative overflow-hidden"
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                
-                {/* Staggered Images Column - Left Side */}
-                <motion.div
-                  variants={container}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true }}
-                  className="relative h-96 md:h-[500px] order-2 lg:order-1"
-                >
-                  {firstSectionImages.map((img, index) => (
-                    <motion.div
-                      key={img.id}
-                      variants={imageVariants}
-                      whileHover={{ 
-                        scale: 1.08, 
-                        rotate: index % 2 === 0 ? 3 : -3,
-                        zIndex: 20
-                      }}
-                      animate={index % 2 === 0 ? floatAnimation : {
-                        y: [5, -8, 5],
-                        rotate: [-1, 1, -1],
-                        transition: {
-                          duration: 3.5,
-                          repeat: Infinity,
-                          ease: "easeInOut"
-                        }
-                      }}
-                      className={`absolute ${img.position} ${img.className} cursor-pointer group overflow-hidden`}
-                      style={{ zIndex: 10 - index }}
-                    >
-                      <div className="w-full h-full flex items-center justify-center text-gray-400 text-xs">
-                        {img.alt}
-                      </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-inherit" />
-                      <div className="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-inherit" />
-                    </motion.div>
-                  ))}
-                  
-                  {/* Enhanced decorative elements */}
-                  <motion.div 
-                    className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full opacity-20"
-                    animate={{
-                      rotate: [0, 360],
-                      scale: [1, 1.15, 1]
-                    }}
-                    transition={{
-                      duration: 8,
-                      repeat: Infinity,
-                      ease: "linear"
-                    }}
-                  />
-                  <motion.div 
-                    className="absolute -bottom-8 -left-8 w-20 h-20 bg-gradient-to-br from-green-400 to-teal-500 rounded-full opacity-25"
-                    animate={{
-                      rotate: [360, 0],
-                      y: [-12, 12, -12],
-                      x: [-5, 5, -5]
-                    }}
-                    transition={{
-                      duration: 6,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  />
-                </motion.div>
-
-                {/* Enhanced Text Content - Right Side - Fixed alignment */}
-                <motion.div
-                  variants={fadeInRight}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true }}
-                  className="flex flex-col justify-center gap-6 order-1 lg:order-2"
-                >
+              {/* Staggered Images Column - Left Side */}
+              <motion.div
+                variants={container}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                className="relative h-96 md:h-[500px] order-2 lg:order-1"
+              >
+                {firstSectionImages.map((img, index) => (
                   <motion.div
-                    initial={{ opacity: 0, y: 30 }}
+                    key={index}
+                    variants={imageVariants}
+                    whileHover={{ 
+                      scale: 1.08, 
+                      rotate: index % 2 === 0 ? 3 : -3,
+                      zIndex: 20
+                    }}
+                    animate={index % 2 === 0 ? floatAnimation : {
+                      y: [5, -8, 5],
+                      rotate: [-1, 1, -1],
+                      transition: {
+                        duration: 3.5,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }
+                    }}
+                    className={`${img.position} ${img.className} cursor-pointer group overflow-hidden`}
+                    style={{ zIndex: 10 - index }}
+                  >
+                    <Image
+                      src={`/images/${img.src}`}
+                      alt={img.alt}
+                      fill
+                      className="object-cover group-hover:scale-110 group-hover:brightness-110 transition-all duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-inherit" />
+                    <div className="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-inherit" />
+                  </motion.div>
+                ))}
+                
+                {/* Enhanced decorative elements */}
+                <motion.div 
+                  className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full opacity-20"
+                  animate={{
+                    rotate: [0, 360],
+                    scale: [1, 1.15, 1]
+                  }}
+                  transition={{
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                />
+                <motion.div 
+                  className="absolute -bottom-8 -left-8 w-20 h-20 bg-gradient-to-br from-green-400 to-teal-500 rounded-full opacity-25"
+                  animate={{
+                    rotate: [360, 0],
+                    y: [-12, 12, -12],
+                    x: [-5, 5, -5]
+                  }}
+                  transition={{
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+              </motion.div>
+
+              {/* Enhanced Text Content - Right Side */}
+              <motion.div
+                variants={fadeInRight}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                className="flex flex-col gap-6 order-1 lg:order-2"
+              >
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3, duration: 0.8 }}
+                  className="space-y-8"
+                >
+                  <div className="relative">
+                    <motion.div 
+                      className="absolute -left-6 top-0 w-1.5 h-20 bg-gradient-to-b from-blue-500 to-purple-600 rounded-full"
+                      initial={{ height: 0, opacity: 0 }}
+                      whileInView={{ height: 80, opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.6, duration: 1.2 }}
+                    />
+                    <motion.p 
+                      className="text-base md:text-lg text-gray-500 leading-relaxed font-light"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ delay: 0.8, duration: 0.6 }}
+                    >
+                      Founder Vince Lebon has been doing shoes for a long time.
+                    </motion.p>
+                  </div>
+                  
+                  <motion.p 
+                    className="text-2xl md:text-4xl lg:text-5xl text-gray-800 leading-tight font-bold"
+                    initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.3, duration: 0.8 }}
-                    className="space-y-8"
+                    transition={{ delay: 1, duration: 0.8 }}
                   >
-                    <div className="relative">
-                      <motion.div 
-                        className="absolute -left-6 top-0 w-1.5 h-20 bg-gradient-to-b from-blue-500 to-purple-600 rounded-full"
-                        initial={{ height: 0, opacity: 0 }}
-                        whileInView={{ height: 80, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.6, duration: 1.2 }}
-                      />
-                      <motion.p 
-                        className="text-base md:text-lg text-gray-500 leading-relaxed font-light"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ delay: 0.8, duration: 0.6 }}
-                      >
-                        Founder Vince Lebon has been doing shoes for a long time.
-                      </motion.p>
-                    </div>
+                    After a decade of designing for some of the biggest names in{" "}
+                    <motion.span 
+                      className="bg-gradient-to-r from-blue-600 via-purple-600 to-teal-500 bg-clip-text text-transparent"
+                      animate={{ 
+                        backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] 
+                      }}
+                      transition={{ 
+                        duration: 3, 
+                        repeat: Infinity 
+                      }}
+                    >
+                      Aussie shoe brands
+                    </motion.span>
+                    , Vince felt like something was missing.
+                  </motion.p>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 1.3, duration: 0.6 }}
+                    className="relative"
+                  >
+                    <p className="text-xl md:text-2xl text-gray-700 leading-relaxed font-medium">
+                      He wanted to create a comfortable, on-the-go shoe that felt just
+                      as good as it looked.
+                    </p>
                     
-                    <motion.p 
-                      className="text-2xl md:text-3xl lg:text-4xl text-gray-800 leading-tight font-bold"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                    <motion.div 
+                      className="absolute -bottom-3 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"
+                      initial={{ width: 0 }}
+                      whileInView={{ width: "70%" }}
                       viewport={{ once: true }}
-                      transition={{ delay: 1, duration: 0.8 }}
-                    >
-                      After a decade of designing for some of the biggest names in{" "}
-                      <motion.span 
-                        className="bg-gradient-to-r from-blue-600 via-purple-600 to-teal-500 bg-clip-text text-transparent inline-block"
-                        style={{
-                          backgroundSize: "200% 100%"
-                        }}
-                        animate={{ 
-                          backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] 
-                        }}
-                        transition={{ 
-                          duration: 3, 
-                          repeat: Infinity 
-                        }}
-                      >
-                        Aussie shoe brands
-                      </motion.span>
-                      , Vince felt like something was missing.
-                    </motion.p>
+                      transition={{ delay: 1.8, duration: 1.2 }}
+                    />
+                  </motion.div>
 
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 1.3, duration: 0.6 }}
-                      className="relative"
-                    >
-                      <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-medium">
-                        He wanted to create a comfortable, on-the-go shoe that felt just
-                        as good as it looked.
-                      </p>
-                      
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 2, duration: 0.6 }}
+                    className="pt-6"
+                  >
+                    <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-full">
                       <motion.div 
-                        className="absolute -bottom-3 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"
-                        initial={{ width: 0 }}
-                        whileInView={{ width: "70%" }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 1.8, duration: 1.2 }}
+                        className="w-3 h-3 bg-blue-500 rounded-full"
+                        animate={{ scale: [1, 1.2, 1] }}
+                        transition={{ duration: 2, repeat: Infinity }}
                       />
-                    </motion.div>
-
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 2, duration: 0.6 }}
-                      className="pt-6"
-                    >
-                      <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-full">
-                        <motion.div 
-                          className="w-3 h-3 bg-blue-500 rounded-full"
-                          animate={{ scale: [1, 1.2, 1] }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                        />
-                        <span className="text-sm font-semibold text-blue-700">
-                          Crafting comfort since 2014
-                        </span>
-                      </div>
-                    </motion.div>
+                      <span className="text-sm font-semibold text-blue-700">
+                        Crafting comfort since 2014
+                      </span>
+                    </div>
                   </motion.div>
                 </motion.div>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
         </section>
 
-        {/* INTERACTIVE SCROLL SECTION - Fixed layout and positioning */}
+        {/* INTERACTIVE SCROLL SECTION - "Designed to Precision" */}
         <section 
           ref={sectionRef}
           className="relative min-h-[300vh] bg-white overflow-hidden"
         >
           <div className="sticky top-0 w-full h-screen flex items-center justify-center">
             <div className="container mx-auto px-6 lg:px-8">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
                 
-                {/* Left Content - Text that changes - Fixed alignment */}
-                <motion.div className="flex flex-col justify-center space-y-8 order-2 lg:order-1">
+                {/* Left Content - Text that changes */}
+                <motion.div className="space-y-8 order-2 lg:order-1">
                   {/* Main Title */}
                   <motion.h2 
-                    className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight"
+                    className="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 leading-tight"
                     key={`title-${currentStep}`}
                     initial={{ opacity: 0.3 }}
                     animate={{ opacity: 1 }}
@@ -472,9 +445,6 @@ export default function About() {
                     Designed to{" "}
                     <motion.span
                       className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent block"
-                      style={{
-                        backgroundSize: "200% 100%"
-                      }}
                       animate={{ 
                         backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] 
                       }}
@@ -496,7 +466,7 @@ export default function About() {
                     className="space-y-6"
                   >
                     <motion.p 
-                      className={`text-lg md:text-xl lg:text-2xl leading-relaxed transition-all duration-500 ${
+                      className={`text-xl md:text-2xl lg:text-3xl leading-relaxed transition-all duration-500 ${
                         currentStep === 0 ? 'font-bold text-gray-800' : 'font-normal text-gray-600'
                       }`}
                     >
@@ -504,7 +474,7 @@ export default function About() {
                     </motion.p>
                     
                     <motion.p 
-                      className="text-base md:text-lg text-gray-600 leading-relaxed"
+                      className="text-lg md:text-xl text-gray-600 leading-relaxed"
                       animate={{ 
                         opacity: currentStep === 0 ? 0.7 : 1,
                         fontWeight: currentStep > 0 ? 600 : 400
@@ -515,9 +485,9 @@ export default function About() {
                     </motion.p>
                   </motion.div>
 
-                  {/* Progress Circle - Fixed alignment */}
-                  <motion.div className="flex items-center gap-6 pt-8">
-                    <div className="relative flex-shrink-0">
+                  {/* Progress Circle */}
+                  <motion.div className="flex items-center gap-4 pt-8">
+                    <div className="relative">
                       <svg width="80" height="80" className="transform -rotate-90">
                         {/* Background circle */}
                         <circle
@@ -570,8 +540,8 @@ export default function About() {
                   </motion.div>
                 </motion.div>
 
-                {/* Right Content - Image placeholder - Fixed aspect ratio */}
-                <motion.div className="relative order-1 lg:order-2 flex items-center justify-center">
+                {/* Right Content - Image that changes */}
+                <motion.div className="relative h-96 md:h-[600px] order-1 lg:order-2">
                   <motion.div
                     key={`image-${currentStep}`}
                     initial={{ opacity: 0, scale: 0.9, rotateY: 15 }}
@@ -580,16 +550,19 @@ export default function About() {
                       duration: 1, 
                       ease: [0.23, 1, 0.32, 1]
                     }}
-                    className="relative w-full max-w-md h-96 md:h-[500px] bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl shadow-2xl flex items-center justify-center"
+                    className="relative w-full h-full"
                   >
-                    <div className="text-gray-400 text-center">
-                      <div className="text-6xl mb-4">👟</div>
-                      <p className="text-sm">Design Step {currentStep + 1}</p>
-                    </div>
+                    <Image
+                      src={`/images/${currentStepData.image}`}
+                      alt={`Design Step ${currentStep + 1}`}
+                      fill
+                      className="object-contain drop-shadow-2xl"
+                      priority
+                    />
                     
-                    {/* Floating elements around the placeholder */}
+                    {/* Floating elements around the shoe */}
                     <motion.div 
-                      className="absolute top-1/4 -right-4 w-4 h-4 bg-blue-500 rounded-full opacity-60"
+                      className="absolute top-1/4 right-8 w-4 h-4 bg-blue-500 rounded-full opacity-60"
                       animate={{
                         y: [-10, 10, -10],
                         scale: [1, 1.2, 1]
@@ -601,7 +574,7 @@ export default function About() {
                       }}
                     />
                     <motion.div 
-                      className="absolute bottom-1/3 -left-4 w-3 h-3 bg-purple-500 rounded-full opacity-70"
+                      className="absolute bottom-1/3 left-12 w-3 h-3 bg-purple-500 rounded-full opacity-70"
                       animate={{
                         x: [-8, 8, -8],
                         y: [5, -5, 5]
@@ -613,7 +586,7 @@ export default function About() {
                       }}
                     />
                     <motion.div 
-                      className="absolute top-1/2 -left-2 w-2 h-2 bg-teal-500 rounded-full opacity-50"
+                      className="absolute top-1/2 left-8 w-2 h-2 bg-teal-500 rounded-full opacity-50"
                       animate={{
                         rotate: [0, 360],
                         scale: [1, 1.5, 1]
@@ -629,9 +602,9 @@ export default function About() {
               </div>
             </div>
 
-            {/* Step Indicators - Fixed positioning */}
+            {/* Step Indicators */}
             <motion.div 
-              className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex gap-3 z-20"
+              className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex gap-3"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.6 }}
@@ -681,166 +654,162 @@ export default function About() {
           </div>
         </section>
 
-        {/* SECOND ENHANCED SECTION - BRAND STORY - Fixed grid alignment */}
+        {/* SECOND ENHANCED SECTION - BRAND STORY */}
         <section className="py-16 md:py-20 bg-gradient-to-br from-white to-gray-50 relative overflow-hidden">
           <div className="container mx-auto px-6 lg:px-8">
             <motion.div 
-              className="bg-white/90 backdrop-blur-sm p-8 md:p-16 rounded-3xl shadow-2xl border border-gray-100 relative overflow-hidden"
+              className="bg-white/90 backdrop-blur-sm p-8 md:p-16 rounded-3xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center shadow-2xl border border-gray-100 relative"
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                
-                {/* Enhanced Text Content - Left Side - Fixed alignment */}
+              {/* Enhanced Text Content - Left Side */}
+              <motion.div
+                variants={fadeInLeft}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                className="flex flex-col gap-8 order-1 lg:order-1"
+              >
                 <motion.div
-                  variants={fadeInLeft}
-                  initial="hidden"
-                  whileInView="show"
+                  className="space-y-6"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  className="flex flex-col justify-center gap-8 order-1 lg:order-1"
+                  transition={{ delay: 0.3, duration: 0.8 }}
                 >
-                  <motion.div
-                    className="space-y-6"
+                  <div className="relative">
+                    <motion.p 
+                      className="text-base md:text-lg text-gray-500 leading-relaxed font-light"
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.5, duration: 0.6 }}
+                    >
+                      Armed with a simple sketch and a challenge, Rollie Nation was born.
+                    </motion.p>
+                  </div>
+                  
+                  <motion.p 
+                    className="text-xl md:text-3xl lg:text-4xl text-gray-800 leading-tight font-bold"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.7, duration: 0.8 }}
+                  >
+                    Prior to Rollie, it was believed that making a{" "}
+                    <motion.span 
+                      className="bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent"
+                      animate={{ 
+                        backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] 
+                      }}
+                      transition={{ 
+                        duration: 4, 
+                        repeat: Infinity 
+                      }}
+                    >
+                      lightweight, comfortable, and durable shoe
+                    </motion.span>{" "}
+                    wasn't possible.
+                  </motion.p>
+
+                  <motion.p 
+                    className="text-xl md:text-2xl text-gray-700 leading-relaxed font-semibold"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.3, duration: 0.8 }}
+                    transition={{ delay: 1, duration: 0.8 }}
                   >
-                    <div className="relative">
-                      <motion.p 
-                        className="text-base md:text-lg text-gray-500 leading-relaxed font-light"
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.5, duration: 0.6 }}
-                      >
-                        Armed with a simple sketch and a challenge, Rollie Nation was born.
-                      </motion.p>
-                    </div>
+                    We proved them wrong.
+                  </motion.p>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 1.2, duration: 0.6 }}
+                  >
+                    <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+                      Our footwear is everything shoes should be. Comfy enough for all-day
+                      adventures, beautifully designed, and wholly unique. Through trial and
+                      error, a decade of learning and relearning we've perfected our craft
+                      and we're ready to share it with you.
+                    </p>
                     
-                    <motion.p 
-                      className="text-2xl md:text-3xl lg:text-4xl text-gray-800 leading-tight font-bold"
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                    <motion.div 
+                      className="absolute -bottom-3 left-0 h-1 bg-gradient-to-r from-teal-500 to-blue-600 rounded-full"
+                      initial={{ width: 0 }}
+                      whileInView={{ width: "80%" }}
                       viewport={{ once: true }}
-                      transition={{ delay: 0.7, duration: 0.8 }}
-                    >
-                      Prior to Rollie, it was believed that making a{" "}
-                      <motion.span 
-                        className="bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent inline-block"
-                        style={{
-                          backgroundSize: "200% 100%"
-                        }}
-                        animate={{ 
-                          backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] 
-                        }}
-                        transition={{ 
-                          duration: 4, 
-                          repeat: Infinity 
-                        }}
-                      >
-                        lightweight, comfortable, and durable shoe
-                      </motion.span>{" "}
-                      wasn't possible.
-                    </motion.p>
-
-                    <motion.p 
-                      className="text-xl md:text-2xl text-gray-700 leading-relaxed font-semibold"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 1, duration: 0.8 }}
-                    >
-                      We proved them wrong.
-                    </motion.p>
-
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 1.2, duration: 0.6 }}
-                      className="relative"
-                    >
-                      <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-                        Our footwear is everything shoes should be. Comfy enough for all-day
-                        adventures, beautifully designed, and wholly unique. Through trial and
-                        error, a decade of learning and relearning we've perfected our craft
-                        and we're ready to share it with you.
-                      </p>
-                      
-                      <motion.div 
-                        className="absolute -bottom-3 left-0 h-1 bg-gradient-to-r from-teal-500 to-blue-600 rounded-full"
-                        initial={{ width: 0 }}
-                        whileInView={{ width: "80%" }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 1.8, duration: 1.2 }}
-                      />
-                    </motion.div>
+                      transition={{ delay: 1.8, duration: 1.2 }}
+                    />
                   </motion.div>
                 </motion.div>
+              </motion.div>
 
-                {/* Staggered Images Column - Right Side - Fixed positioning */}
-                <motion.div
-                  variants={container}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true }}
-                  className="relative h-96 md:h-[500px] order-2 lg:order-2"
-                >
-                  {secondSectionImages.map((img, index) => (
-                    <motion.div
-                      key={img.id}
-                      variants={imageVariants}
-                      whileHover={{ 
-                        scale: 1.1, 
-                        rotate: index % 2 === 0 ? -4 : 4,
-                        zIndex: 20
-                      }}
-                      animate={index % 3 === 0 ? floatAnimation : {
-                        y: [8, -5, 8],
-                        x: [-2, 2, -2],
-                        transition: {
-                          duration: 4.5,
-                          repeat: Infinity,
-                          ease: "easeInOut"
-                        }
-                      }}
-                      className={`absolute ${img.position} ${img.className} cursor-pointer group overflow-hidden`}
-                      style={{ zIndex: 10 - index }}
-                    >
-                      <div className="w-full h-full flex items-center justify-center text-gray-400 text-xs">
-                        {img.alt}
-                      </div>
-                      <motion.div 
-                        className="absolute inset-0 bg-gradient-to-br from-teal-400/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-inherit"
-                        whileHover={{ rotate: 180 }}
-                        transition={{ duration: 0.8 }}
-                      />
-                    </motion.div>
-                  ))}
-                  
-                  {/* Right side decorative elements */}
-                  <motion.div 
-                    className="absolute -top-8 -right-8 w-28 h-28 bg-gradient-to-br from-teal-300/30 to-blue-400/30 rounded-full opacity-40"
-                    animate={{
-                      rotate: [0, -360],
-                      scale: [1, 1.2, 1]
+              {/* Staggered Images Column - Right Side */}
+              <motion.div
+                variants={container}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                className="relative h-96 md:h-[500px] order-2 lg:order-2"
+              >
+                {secondSectionImages.map((img, index) => (
+                  <motion.div
+                    key={index}
+                    variants={imageVariants}
+                    whileHover={{ 
+                      scale: 1.1, 
+                      rotate: index % 2 === 0 ? -4 : 4,
+                      zIndex: 20
                     }}
-                    transition={{
-                      duration: 10,
-                      repeat: Infinity,
-                      ease: "easeInOut"
+                    animate={index % 3 === 0 ? floatAnimation : {
+                      y: [8, -5, 8],
+                      x: [-2, 2, -2],
+                      transition: {
+                        duration: 4.5,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }
                     }}
-                  />
-                </motion.div>
-              </div>
+                    className={`${img.position} ${img.className} cursor-pointer group overflow-hidden`}
+                    style={{ zIndex: 10 - index }}
+                  >
+                    <Image
+                      src={`/images/${img.src}`}
+                      alt={img.alt}
+                      fill
+                      className="object-cover group-hover:scale-115 group-hover:brightness-110 transition-all duration-500"
+                    />
+                    <motion.div 
+                      className="absolute inset-0 bg-gradient-to-br from-teal-400/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-inherit"
+                      whileHover={{ rotate: 180 }}
+                      transition={{ duration: 0.8 }}
+                    />
+                  </motion.div>
+                ))}
+                
+                {/* Right side decorative elements */}
+                <motion.div 
+                  className="absolute -top-8 -right-8 w-28 h-28 bg-gradient-to-br from-teal-300/30 to-blue-400/30 rounded-full opacity-40"
+                  animate={{
+                    rotate: [0, -360],
+                    scale: [1, 1.2, 1]
+                  }}
+                  transition={{
+                    duration: 10,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+              </motion.div>
             </motion.div>
           </div>
         </section>
 
-        {/* NEWSLETTER SECTION - Fixed form alignment */}
+        {/* NEWSLETTER SECTION - Enhanced */}
         <section className="py-16 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
           <div className="container mx-auto px-6 lg:px-8">
             <motion.div 
@@ -866,10 +835,7 @@ export default function About() {
                 >
                   Let's stay in{" "}
                   <motion.span
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent inline-block"
-                    style={{
-                      backgroundSize: "200% 100%"
-                    }}
+                    className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
                     animate={{ 
                       backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] 
                     }}
@@ -892,23 +858,21 @@ export default function About() {
                   Stay in the loop, with exclusive offers and product previews.
                 </motion.p>
                 
-                {/* Fixed form layout */}
-                <motion.form 
-                  className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-xl mx-auto"
+                <motion.div 
+                  className="flex flex-col sm:flex-row justify-center gap-4 max-w-xl mx-auto"
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.6, duration: 0.8 }}
                 >
                   <motion.input
-                    className="px-6 py-4 rounded-xl border-2 border-gray-200 w-full sm:flex-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 bg-white/80"
+                    className="px-6 py-4 rounded-xl border-2 border-gray-200 w-full sm:w-auto focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 bg-white/80"
                     placeholder="Enter your email..."
                     whileFocus={{ scale: 1.02 }}
                     type="email"
                   />
                   <motion.button 
-                    type="submit"
-                    className="px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto"
+                    className="px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
                     whileHover={{ 
                       scale: 1.05,
                       boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
@@ -917,7 +881,7 @@ export default function About() {
                   >
                     Join Our Journey
                   </motion.button>
-                </motion.form>
+                </motion.div>
               </div>
             </motion.div>
           </div>
