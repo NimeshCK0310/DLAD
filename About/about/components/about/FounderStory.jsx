@@ -73,7 +73,7 @@ export default function FounderStory() {
   }, [scrollYProgress]);
 
   return (
-    <section ref={sectionRef} className="relative min-h-[150vh]">
+    <section ref={sectionRef} className="relative min-h-[200vh]">
       <div className="bg-ash-100 backdrop-blur-sm p-8 md:p-16 grid grid-cols-1 lg:grid-cols-2 gap-12">
         
         {/* Left — Images */}
