@@ -17,8 +17,9 @@ export default function About() {
         <HeroSection />
         <FounderStory />
         <CenteredHeroImage />
-        <InteractiveScrollSection />
         <BrandStory />
+        <InteractiveScrollSection />
+        
         <NewsletterSection />
       </main>
       <Footer />
