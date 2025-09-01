@@ -4,47 +4,19 @@ import { motion, useScroll } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-
 const textSegments = [
   "Founder Vince Lebon has been doing shoes for a long time. ",
   "After a decade of designing for some of the biggest names in Aussie shoe brands, Vince felt like something was missing. ",
   "He wanted to create a comfortable, on-the-go shoe that felt just as good as it looked. ",
 ];
 
-
 const firstSectionImages = [
-  {
-    src: "process-1.jpg",
-    alt: "Founder Story 1",
-    className: "w-52 h-70 rounded-2xl shadow-lg border-4 border-gray-300",
-    position: "absolute top-0 left-12",
-  },
-  {
-    src: "process-2.jpg",
-    alt: "Founder Story 2",
-    className: "w-34 h-48 rounded-4xl shadow-lg border-4 border-gray-300",
-    position: "absolute top-90 left-2",
-  },
-  {
-    src: "process-3.jpg",
-    alt: "Founder Story 3",
-    className: "w-65 h-65 rounded-3xl shadow-xl border-4 border-gray-300",
-    position: "absolute top-[600px] left-60",
-  },
-  {
-    src: "process-4.jpg",
-    alt: "Founder Story 4",
-    className: "w-40 h-40 rounded-4xl shadow-lg border-4 border-gray-300",
-    position: "absolute top-[780px] left-23",
-  },
-  {
-    src: "process-5.jpg",
-    alt: "Founder Story 5",
-    className: "w-34 h-48 rounded-4xl shadow-md border-4 border-gray-300",
-    position: "absolute top-[1000px] left-80",
-  },
+  { src: "process-1.jpg", alt: "Founder Story 1", className: "w-52 h-70 rounded-2xl shadow-lg border-4 border-gray-300", position: "absolute top-0 left-12" },
+  { src: "process-2.jpg", alt: "Founder Story 2", className: "w-34 h-48 rounded-4xl shadow-lg border-4 border-gray-300", position: "absolute top-90 left-2" },
+  { src: "process-3.jpg", alt: "Founder Story 3", className: "w-65 h-65 rounded-3xl shadow-xl border-4 border-gray-300", position: "absolute top-[600px] left-60" },
+  { src: "process-4.jpg", alt: "Founder Story 4", className: "w-40 h-40 rounded-4xl shadow-lg border-4 border-gray-300", position: "absolute top-[780px] left-23" },
+  { src: "process-5.jpg", alt: "Founder Story 5", className: "w-34 h-48 rounded-4xl shadow-md border-4 border-gray-300", position: "absolute top-[1000px] left-80" },
 ];
-
 
 const textToImageMap = {
   0: 0,
@@ -58,13 +30,12 @@ export default function FounderStory() {
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "end start"], 
+    offset: ["start end", "end start"],
   });
 
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", (v) => {
       const totalSteps = firstSectionImages.length;
-      
       let idx = Math.floor(v * (totalSteps - 0.8));
       idx = Math.max(0, Math.min(idx, totalSteps - 1));
       setActiveIndex(idx);
@@ -107,19 +78,42 @@ export default function FounderStory() {
 
         {/* Right — Text */}
         <div className="order-1 lg:order-2 flex flex-col space-y-16">
-          {textSegments.map((part, i) => (
-            <motion.p
-              key={i}
-              className="text-2xl md:text-3xl lg:text-5xl leading-relaxed font-light"
-              animate={{
-                color: activeIndex === i ? "#111827" : "#9ca3af",
-                opacity: activeIndex === i ? 1 : 0.5,
+          {/* Combined first two segments */}
+          <motion.p
+            className="text-2xl md:text-3xl lg:text-5xl leading-relaxed font-light"
+            transition={{ duration: 0.6 }}
+          >
+            <span
+              style={{
+                color: activeIndex === 0 ? "#111827" : "#9ca3af",
+                opacity: activeIndex === 0 ? 1 : 0.5,
+                transition: "all 0.6s",
               }}
-              transition={{ duration: 0.6 }}
             >
-              {part}
-            </motion.p>
-          ))}
+              {textSegments[0]}
+            </span>
+            <span
+              style={{
+                color: activeIndex === 1 ? "#111827" : "#9ca3af",
+                opacity: activeIndex === 1 ? 1 : 0.5,
+                transition: "all 0.6s",
+              }}
+            >
+              {textSegments[1]}
+            </span>
+          </motion.p>
+
+          {/* Third segment */}
+          <motion.p
+            className="text-2xl md:text-3xl lg:text-5xl leading-relaxed font-light"
+            animate={{
+              color: activeIndex === 2 ? "#111827" : "#9ca3af",
+              opacity: activeIndex === 2 ? 1 : 0.5,
+            }}
+            transition={{ duration: 0.6 }}
+          >
+            {textSegments[2]}
+          </motion.p>
         </div>
       </div>
     </section>

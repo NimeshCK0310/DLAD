@@ -8,7 +8,7 @@ export default function Logo({ isScrolled }: { isScrolled: boolean }) {
     <motion.div>
       <Link href="/">
         <motion.div
-          className={` text-black absolute top-15 left-8 font-bold
+          className={` text-black absolute top-15 left-8 font-bold pt-5
             flex items-start justify-start
             ${
               isScrolled

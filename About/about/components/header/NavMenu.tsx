@@ -47,7 +47,7 @@ export default function NavMenu({ isScrolled }: { isScrolled: boolean }) {
           <Link
             href={item.href}
             className={`flex items-center px-6 py-3 transition-colors duration-200 hover:bg-white hover:text-black  ${
-              index === 0 ? "rounded-l-full -ml-px" : "" // snug to left edge, fix 1px seam
+              index === 0 ? "rounded-l-full -ml-px" : ""
             }`}
           >
             {item.icon && <div className="mr-1">{item.icon}</div>}
@@ -56,10 +56,10 @@ export default function NavMenu({ isScrolled }: { isScrolled: boolean }) {
         </motion.div>
       ))}
 
-      {/* Divider between text links and icons */}
+   
       <div className="w-px h-8 bg-gray-300" />
 
-      {/* Icons wrapper – keep icons inside the pill and aligned */}
+    
       <div className="flex items-center justify-center h-full overflow-hidden rounded-r-full shrink-0 pl-1 pr-4 pt-3">
         <NavIcons />
       </div>
