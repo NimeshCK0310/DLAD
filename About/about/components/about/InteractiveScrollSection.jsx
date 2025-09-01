@@ -31,7 +31,7 @@ export default function RollieScrollAligned() {
   const totalScrollSteps = steps.length * scrollsPerImage;
   const isAnimatingRef = useRef(false);
 
-  // Wheel scroll
+
   useEffect(() => {
     const handleWheel = (e) => {
       const delta = Math.sign(e.deltaY);
@@ -68,7 +68,7 @@ export default function RollieScrollAligned() {
     return () => section.removeEventListener("wheel", handleWheel);
   }, [virtualScroll]);
 
-  // Touch scroll
+
   useEffect(() => {
     let touchStartY = 0;
     const handleTouchStart = (e) => {

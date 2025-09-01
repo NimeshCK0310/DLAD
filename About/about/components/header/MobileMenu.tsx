@@ -17,7 +17,7 @@ export default function MobileNav() {
 
   return (
     <div className="md:hidden">
-      {/* Hamburger Button */}
+     
       <button
         onClick={() => setOpen(!open)}
         className="p-2 text-gray-800 z-50 relative"
@@ -26,7 +26,7 @@ export default function MobileNav() {
         {open ? <X size={28} /> : <Menu size={28} />}
       </button>
 
-      {/* Slide-out Menu */}
+   
       <AnimatePresence>
         {open && (
           <motion.div

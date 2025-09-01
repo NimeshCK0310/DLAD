@@ -32,7 +32,7 @@ export default function FooterBrand() {
         hesitations. We're all in.
       </motion.p>
 
-      {/* Newsletter */}
+
       <FooterNewsletter />
     </motion.div>
   );

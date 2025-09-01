@@ -41,7 +41,7 @@ export default function NavMenu({ isScrolled }: { isScrolled: boolean }) {
       initial="hidden"
       animate="show"
     >
-      {/* Nav text links */}
+
       {items.map((item, index) => (
         <motion.div key={item.name} variants={navItemVariants} className="flex">
           <Link

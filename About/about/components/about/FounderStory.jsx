@@ -47,7 +47,7 @@ export default function FounderStory() {
     <section ref={sectionRef} className="relative min-h-[200vh]">
       <div className="bg-ash-100 backdrop-blur-sm p-8 md:p-16 grid grid-cols-1 lg:grid-cols-2 gap-12">
         
-        {/* Left — Images */}
+       
         <div className="relative h-[1100px] order-2 xl:order-1">
           {firstSectionImages.map((img, i) => {
             const isLinked = textToImageMap[activeIndex] === i;
@@ -76,9 +76,9 @@ export default function FounderStory() {
           })}
         </div>
 
-        {/* Right — Text */}
+        
         <div className="order-1 lg:order-2 flex flex-col space-y-16">
-          {/* Combined first two segments */}
+         
           <motion.p
             className="text-2xl md:text-3xl lg:text-5xl leading-relaxed font-light"
             transition={{ duration: 0.6 }}
@@ -103,7 +103,7 @@ export default function FounderStory() {
             </span>
           </motion.p>
 
-          {/* Third segment */}
+        
           <motion.p
             className="text-2xl md:text-3xl lg:text-5xl leading-relaxed font-light"
             animate={{
