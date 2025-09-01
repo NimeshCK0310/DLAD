@@ -4,14 +4,14 @@ import { motion, useScroll } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-// 3 text parts
+
 const textSegments = [
   "Founder Vince Lebon has been doing shoes for a long time. ",
   "After a decade of designing for some of the biggest names in Aussie shoe brands, Vince felt like something was missing. ",
   "He wanted to create a comfortable, on-the-go shoe that felt just as good as it looked. ",
 ];
 
-// 5 images (keep alignments as-is)
+
 const firstSectionImages = [
   {
     src: "process-1.jpg",
@@ -45,7 +45,7 @@ const firstSectionImages = [
   },
 ];
 
-// mapping text → image
+
 const textToImageMap = {
   0: 0,
   1: 1,
@@ -58,13 +58,13 @@ export default function FounderStory() {
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "end start"], // smoother scroll mapping
+    offset: ["start end", "end start"], 
   });
 
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", (v) => {
       const totalSteps = firstSectionImages.length;
-      // Activate last image slightly earlier to remove delay
+      
       let idx = Math.floor(v * (totalSteps - 0.8));
       idx = Math.max(0, Math.min(idx, totalSteps - 1));
       setActiveIndex(idx);

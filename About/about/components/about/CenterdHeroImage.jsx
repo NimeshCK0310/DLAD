@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 
 const CenteredHeroImage = () => {
-  // Hardcoded image path and alt text
+
   const src = "/images/hero.jpg";
   const alt = "Hero image for the about page";
 

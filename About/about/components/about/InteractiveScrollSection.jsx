@@ -126,7 +126,7 @@ export default function RollieScrollAligned() {
       className="relative min-h-[110vh] bg-white overflow-hidden"
     >
       <div className="sticky top-0 h-screen w-full flex flex-col lg:flex-row justify-between items-start px-8 lg:px-24 pt-8 lg:pt-16">
-        {/* Left side: topic + image */}
+        
         <div className="flex flex-col items-start gap-2 lg:w-1/2">
           <div>
             <p className="text-sm font-semibold text-gray-500 tracking-[0.2em] uppercase">
@@ -156,7 +156,7 @@ export default function RollieScrollAligned() {
           </div>
         </div>
 
-        {/* Right side: step info + progress */}
+       
         <div className="flex flex-col items-start lg:w-1/2 gap-4 lg:gap-6 mt-4 lg:mt-0 pt-50 pl-20">
           <motion.div
             key={currentStep}
@@ -170,7 +170,7 @@ export default function RollieScrollAligned() {
             <p className="text-lg text-gray-600 mt-1">{currentData.subtitle}</p>
           </motion.div>
 
-          {/* Circular progress */}
+         
           <div className="relative w-40 h-40 mt-4">
             <svg width="160" height="160" className="transform -rotate-90">
               <circle
@@ -188,7 +188,7 @@ export default function RollieScrollAligned() {
                 stroke="#000"
                 strokeWidth="2"
                 fill="transparent"
-                strokeDasharray={452} // 2 * π * 72
+                strokeDasharray={452} 
                 strokeDashoffset={452 - (452 * circleProgress) / 100}
                 strokeLinecap="round"
                 transition={{ duration: 0.6, ease: "easeInOut" }}
@@ -203,8 +203,7 @@ export default function RollieScrollAligned() {
         </div>
       </div>
 
-      {/* Spacer for scrolling */}
-      {/* <div style={{ height: "20vh" }} /> */}
+
     </section>
   );
 }

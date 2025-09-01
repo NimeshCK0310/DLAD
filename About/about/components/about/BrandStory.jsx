@@ -4,13 +4,13 @@ import { motion, useScroll } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-// TEXT SEGMENTS
+
 const textSegments = [
   "Armed with a simple sketch and a challenge, Rollie Nation was born. Prior to Rollie, it was believed that making a lightweight, comfortable, and durable shoe wasn’t possible. We proved them wrong.",
   "Our footwear is everything shoes should be. Comfy enough for all-day adventures, beautifully designed, and wholly unique. Through trial and error, a decade of learning and relearning we’ve perfected our craft and we’re ready to share it with you.",
 ];
 
-// IMAGES
+
 const secondSectionImages = [
   {
     src: "process-6.jpg",
@@ -38,7 +38,7 @@ const secondSectionImages = [
   },
 ];
 
-// map text index to image index
+
 const textToImageMap = {
   0: 0,
   1: 1,
