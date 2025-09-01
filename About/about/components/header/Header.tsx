@@ -7,7 +7,6 @@ import { Menu, X } from "lucide-react";
 import TopBar from "./TopBar";
 import Logo from "./Logo";
 import NavMenu from "./NavMenu";
-import NavIcons from "./NavIcons";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -19,12 +18,10 @@ const navLinks = [
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
@@ -33,28 +30,22 @@ export default function Header() {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all ${
+      className={`fixed top-0 left-0 right-0 z-50 duration-100 ${
         isScrolled
-          ? "bg-white/80 backdrop-blur-md shadow-lg border-b"
+          ? "bg-transparent "
           : "bg-transparent"
       }`}
-      style={{
-        backgroundColor: isScrolled
-          ? `rgba(255, 255, 255, ${Math.min(scrollY / 200, 0.9)})`
-          : "transparent",
-      }}
     >
       {/* Top bar */}
       <TopBar isScrolled={isScrolled} />
 
       {/* Main nav */}
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-1 py-4 flex items-center justify-between">
         <Logo isScrolled={isScrolled} />
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-6">
           <NavMenu isScrolled={isScrolled} />
-          <NavIcons />
         </div>
 
         {/* Mobile Nav Button */}

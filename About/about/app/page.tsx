@@ -13,7 +13,7 @@ export default function About() {
   return (
     <>
       <Header />
-      <main className="bg-white max-w-full mx-auto px-0 pt-4 overflow-hidden">
+      <main className="bg-gray-100 max-w-full mx-auto px-0 pt-4 overflow-hidden">
         <HeroSection />
         <FounderStory />
         <CenterdHeroImage />

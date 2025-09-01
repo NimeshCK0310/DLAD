@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { LockClosedIcon } from "@heroicons/react/24/outline";
+import NavIcons from "./NavIcons";
 
 const navItemVariants = {
   hidden: { opacity: 0, y: -10 },
@@ -18,40 +19,50 @@ export default function NavMenu({ isScrolled }: { isScrolled: boolean }) {
   const items = [
     { name: "Shop", href: "/shop" },
     { name: "Behind Rollie", href: "/behind-rollie" },
-    { name: "Archive Sale", href: "/archive-sale", icon: <LockClosedIcon className="w-4 h-4" />, special: true },
+    {
+      name: "Archive Sale",
+      href: "/archive-sale",
+      icon: <LockClosedIcon className="w-4 h-4" />,
+      special: true,
+    },
     { name: "Rewards", href: "/rewards", icon: <span>🏆</span> },
   ];
 
   return (
     <motion.nav
-      className={`hidden md:flex gap-8 items-center font-medium text-gray-800 ${
-        isScrolled ? "bg-white/70 px-6 py-3 rounded-full shadow-lg" : "px-4 py-2"
-      }`}
+      className={`hidden md:flex items-center font-medium text-gray-800 border border-white rounded-full overflow-hidden 
+        ${
+          isScrolled
+            ? "bg-transparent pl-0 pr-1 py-0 shadow-lg" // remove left padding; keep slight right padding
+            : "bg-gray-200 pl-0 pr-1 py-0"
+        }
+      `}
       variants={containerVariants}
       initial="hidden"
       animate="show"
     >
-      {items.map((item) => (
-        <motion.div key={item.name} variants={navItemVariants} whileHover={{ y: -2 }}>
+      {/* Nav text links */}
+      {items.map((item, index) => (
+        <motion.div key={item.name} variants={navItemVariants} className="flex">
           <Link
             href={item.href}
-            className={`flex items-center gap-2 hover:text-blue-600 transition-all relative group ${
-              item.special ? "text-blue-600" : ""
+            className={`flex items-center px-6 py-3 transition-colors duration-200 hover:bg-white hover:text-black  ${
+              index === 0 ? "rounded-l-full -ml-px" : "" // snug to left edge, fix 1px seam
             }`}
           >
-            {item.icon && <motion.div whileHover={{ rotate: 360 }}>{item.icon}</motion.div>}
-            <span className="relative">
-              {item.name}
-              <motion.div
-                className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600"
-                initial={{ width: 0 }}
-                whileHover={{ width: "100%" }}
-                transition={{ duration: 0.3 }}
-              />
-            </span>
+            {item.icon && <div className="mr-1">{item.icon}</div>}
+            <span>{item.name}</span>
           </Link>
         </motion.div>
       ))}
+
+      {/* Divider between text links and icons */}
+      <div className="w-px h-8 bg-gray-300" />
+
+      {/* Icons wrapper – keep icons inside the pill and aligned */}
+      <div className="flex items-center justify-center h-full overflow-hidden rounded-r-full shrink-0 pl-1 pr-4 pt-3">
+        <NavIcons />
+      </div>
     </motion.nav>
   );
 }
