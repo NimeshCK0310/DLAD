@@ -6,7 +6,6 @@ import HeroSection from "../components/about/HeroSection";
 import FounderStory from "../components/about/FounderStory";
 import InteractiveScrollSection from "../components/about/InteractiveScrollSection";
 import BrandStory from "../components/about/BrandStory";
-import NewsletterSection from "../components/about/NewsletterSection";
 import CenterdHeroImage from "@/components/about/CenterdHeroImage";
 
 export default function About() {
