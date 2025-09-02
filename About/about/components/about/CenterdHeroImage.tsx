@@ -9,7 +9,6 @@ const CenteredHeroImage: FC = () => {
 
   return (
     <section className="relative w-screen h-[110vh] bg-gray-200 flex justify-center items-center overflow-hidden">
-      {/* Hero Image */}
       <div className="relative w-full max-w-8xl h-[95vh] -mt-20">
         <Image
           src={src}

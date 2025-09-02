@@ -1,23 +1,43 @@
 "use client";
 
-import { motion } from "framer-motion";
+import React from "react";
+import { motion, Variants, TargetAndTransition } from "framer-motion";
 import { Phone, MessageCircle, Mail } from "lucide-react";
 import FooterSocial from "./FooterSocial";
 
-const linkHover = { x: 5, color: "#10b981", transition: { duration: 0.2 } };
+const containerVariants: Variants = {
+  hidden: {},
+  show: {},
+};
 
-export default function FooterContact() {
+// Properly typed hover animation
+const linkHover: TargetAndTransition = {
+  x: 5,
+  color: "#10b981",
+  transition: { duration: 0.2 },
+};
+
+const FooterContact: React.FC = () => {
   return (
-    <motion.div variants={{ hidden: {}, show: {} }}>
+    <motion.div variants={containerVariants}>
       <h5 className="font-bold text-lg text-gray-900 mb-4">Contact Us</h5>
       <ul className="space-y-3 text-sm">
-        <motion.li whileHover={linkHover} className="flex items-center gap-2 text-gray-600 cursor-pointer">
+        <motion.li
+          whileHover={linkHover}
+          className="flex items-center gap-2 text-gray-600 cursor-pointer"
+        >
           <Phone size={16} /> 1800 ROLLIE
         </motion.li>
-        <motion.li whileHover={linkHover} className="flex items-center gap-2 text-gray-600 cursor-pointer">
+        <motion.li
+          whileHover={linkHover}
+          className="flex items-center gap-2 text-gray-600 cursor-pointer"
+        >
           <MessageCircle size={16} /> WhatsApp
         </motion.li>
-        <motion.li whileHover={linkHover} className="flex items-center gap-2 text-gray-600 cursor-pointer">
+        <motion.li
+          whileHover={linkHover}
+          className="flex items-center gap-2 text-gray-600 cursor-pointer"
+        >
           <Mail size={16} /> hello@rollienation.com
         </motion.li>
       </ul>
@@ -25,4 +45,6 @@ export default function FooterContact() {
       <FooterSocial />
     </motion.div>
   );
-}
+};
+
+export default FooterContact;

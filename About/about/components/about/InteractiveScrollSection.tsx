@@ -38,14 +38,13 @@ export default function RollieScrollAligned() {
   const scrollsPerImage = 1.5;
   const totalScrollSteps = steps.length * scrollsPerImage;
 
-  // Stable function with useCallback to fix hook warnings
   const triggerScroll = useCallback(
     (nextScroll: number) => {
       isAnimatingRef.current = true;
       animate(virtualScroll, nextScroll, {
         type: "tween",
         duration: 0.6,
-        ease: [0.42, 0, 0.58, 1], // easeInOut cubic bezier
+        ease: [0.42, 0, 0.58, 1],
         onUpdate: (latest) => setVirtualScroll(Math.round(latest)),
         onComplete: () => {
           setCurrentStep(Math.floor(nextScroll / scrollsPerImage));
@@ -56,7 +55,6 @@ export default function RollieScrollAligned() {
     [virtualScroll]
   );
 
-  // Wheel scrolling
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
       const delta = Math.sign(e.deltaY);
@@ -91,7 +89,6 @@ export default function RollieScrollAligned() {
     };
   }, [virtualScroll, totalScrollSteps, triggerScroll]);
 
-  // Touch scrolling
   useEffect(() => {
     let touchStartY = 0;
 
@@ -127,7 +124,9 @@ export default function RollieScrollAligned() {
       section.addEventListener("touchstart", handleTouchStart, {
         passive: false,
       });
-      section.addEventListener("touchmove", handleTouchMove, { passive: false });
+      section.addEventListener("touchmove", handleTouchMove, {
+        passive: false,
+      });
     }
 
     return () => {
@@ -144,10 +143,9 @@ export default function RollieScrollAligned() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[110vh] bg-white rounded-4xl"
+      className="relative min-h-[110vh] bg-white rounded-3xl  my-0 px-4 sm:px-8 lg:px-24 py-8 pb-10"
     >
-      <div className="sticky top-0 h-screen w-full flex flex-col lg:flex-row justify-between items-start px-6 sm:px-8 lg:px-24 pt-6 lg:pt-16">
-        {/* Left side (title + image) */}
+      <div className="sticky top-0 h-screen w-full flex flex-col lg:flex-row justify-between items-start gap-8">
         <div className="flex flex-col items-start gap-4 lg:w-1/2">
           <div>
             <p className="text-xs sm:text-sm font-semibold text-gray-500 tracking-[0.2em] uppercase">
@@ -158,7 +156,6 @@ export default function RollieScrollAligned() {
             </h2>
           </div>
 
-          {/* Image container */}
           <div className="relative w-full h-[420px] sm:h-[540px] md:h-[700px] lg:h-[850px] mt-4 flex items-start justify-center">
             <motion.div
               key={currentStep}
@@ -172,7 +169,9 @@ export default function RollieScrollAligned() {
                 alt={`Step ${currentStep + 1}`}
                 fill
                 className={`object-contain ${
-                  currentData.image === "hero-2.png" ? "object-center" : "object-top"
+                  currentData.image === "hero-2.png"
+                    ? "object-center"
+                    : "object-top"
                 }`}
                 priority
               />
@@ -180,8 +179,7 @@ export default function RollieScrollAligned() {
           </div>
         </div>
 
-        {/* Right side (text + progress) */}
-        <div className="flex flex-col items-start lg:w-1/2 gap-4 lg:gap-6 mt-6 lg:mt-0 lg:pl-12 lg:pt-0">
+        <div className="flex flex-col items-start lg:w-1/2 gap-4 lg:gap-6 mt-6 lg:mt-0 lg:pl-12">
           <motion.div
             key={currentStep}
             initial={{ opacity: 0, x: 40 }}
@@ -196,7 +194,6 @@ export default function RollieScrollAligned() {
             </p>
           </motion.div>
 
-          {/* Progress Circle */}
           <div className="relative w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 mt-6">
             <svg width="100%" height="100%" className="transform -rotate-90">
               <circle

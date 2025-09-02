@@ -3,20 +3,22 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
 
-// Glow button variants
 const glowButton: Variants = {
   rest: { scale: 1, boxShadow: "0 0 0 rgba(16, 185, 129, 0)" },
   hover: {
     scale: 1.05,
     boxShadow: "0 0 20px rgba(16, 185, 129, 0.3)",
-    transition: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }, // easeOut equivalent
+    transition: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] },
   },
 };
 
-// Empty variants for the container (can animate later if needed)
 const containerVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
+  },
 };
 
 const FooterNewsletter: React.FC = () => {
@@ -28,7 +30,9 @@ const FooterNewsletter: React.FC = () => {
       viewport={{ once: true }}
       className="space-y-4"
     >
-      <h5 className="font-bold text-lg text-gray-900">Let&apos;s stay in touch</h5>
+      <h5 className="font-bold text-lg text-gray-900">
+        Let&apos;s stay in touch
+      </h5>
       <p className="text-gray-600 text-sm">
         Stay in the loop, with exclusive offers and product previews.
       </p>

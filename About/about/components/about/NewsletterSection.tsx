@@ -13,7 +13,6 @@ export default function NewsletterSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          {/* Background Gradients */}
           <div className="absolute inset-0 opacity-5">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,_theme(colors.blue.500),_transparent_50%)]" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_75%,_theme(colors.purple.500),_transparent_50%)]" />
@@ -81,7 +80,6 @@ export default function NewsletterSection() {
         </motion.div>
       </div>
 
-      {/* Decorative Floating Gradients */}
       <motion.div
         className="absolute top-10 left-10 w-24 h-24 bg-gradient-to-br from-blue-300/20 to-purple-300/20 rounded-full blur-2xl"
         animate={{

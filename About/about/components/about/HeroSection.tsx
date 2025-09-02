@@ -44,7 +44,6 @@ export default function HeroSection() {
         </motion.h1>
       </motion.div>
 
-
       <motion.div
         className="absolute top-20 right-20 w-32 h-32 bg-gradient-to-br from-blue-300/20 to-purple-300/20 rounded-full blur-2xl"
         animate={{
@@ -59,4 +58,4 @@ export default function HeroSection() {
       />
     </section>
   );
-};
+}
