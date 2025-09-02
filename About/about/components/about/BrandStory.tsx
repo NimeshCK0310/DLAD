@@ -22,25 +22,29 @@ const secondSectionImages: BrandImage[] = [
   {
     src: "process-6.jpg",
     alt: "Brand Journey 1",
-    className: "w-68 h-68 md:w-52 md:h-52 sm:w-40 sm:h-40 rounded-4xl shadow-lg border-4 border-gray-300",
-    position: "absolute top-0 right-2 left-50",
+    className:
+      "w-64 h-64 md:w-52 md:h-52 sm:w-40 sm:h-40 rounded-3xl shadow-lg border-4 border-gray-300",
+    position: "absolute top-0 right-2 left-[200px]",
   },
   {
     src: "process-7.jpg",
     alt: "Brand Journey 2",
-    className: "w-45 h-45 md:w-32 md:h-32 sm:w-28 sm:h-28 rounded-4xl shadow-lg border-4 border-gray-300",
+    className:
+      "w-44 h-44 md:w-32 md:h-32 sm:w-28 sm:h-28 rounded-3xl shadow-lg border-4 border-gray-300",
     position: "absolute top-[50px] left-20",
   },
   {
     src: "process-8.jpg",
     alt: "Brand Journey 3",
-    className: "w-60 h-75 md:w-44 md:h-56 sm:w-36 sm:h-48 rounded-4xl shadow-lg border-4 border-gray-300",
-    position: "absolute top-[100px] right-0 left-100",
+    className:
+      "w-60 h-72 md:w-44 md:h-56 sm:w-36 sm:h-48 rounded-3xl shadow-lg border-4 border-gray-300",
+    position: "absolute top-[100px] right-0 left-[400px]",
   },
   {
     src: "process-9.jpg",
     alt: "Brand Journey 4",
-    className: "w-60 h-70 md:w-24 md:h-32 sm:w-20 sm:h-28 rounded-4xl shadow-lg border-4 border-gray-300",
+    className:
+      "w-60 h-72 md:w-24 md:h-32 sm:w-20 sm:h-28 rounded-3xl shadow-lg border-4 border-gray-300",
     position: "absolute top-[150px] left-60",
   },
 ];
@@ -71,21 +75,25 @@ export default function BrandStory() {
   }, [scrollYProgress]);
 
   return (
-    <section ref={sectionRef} className="relative min-h-[80vh] pb-0">
-      <div className=" backdrop-blur-sm p-6 sm:p-8 md:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+    <section ref={sectionRef} className="relative min-h-[80vh] pb-0 bg-gray-200">
+      <div className="bg-gray-200 backdrop-blur-sm p-6 sm:p-8 md:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
         {/* Text Section */}
-        <div className="order-1 lg:order-1 flex flex-col space-y-8 md:space-y-12 lg:space-y-16">
+        <div className="order-1 flex flex-col space-y-8 md:space-y-12 lg:space-y-16">
           <motion.p className="text-xl sm:text-2xl md:text-3xl lg:text-5xl leading-relaxed font-light">
             <span
-              className={`transition-all duration-600 ${
-                activeIndex === 0 ? "text-gray-900 opacity-100" : "text-gray-400 opacity-50"
+              className={`transition-all duration-500 ${
+                activeIndex === 0
+                  ? "text-gray-900 opacity-100"
+                  : "text-gray-400 opacity-50"
               }`}
             >
               {textSegments[0]}{" "}
             </span>
             <span
-              className={`transition-all duration-600 ${
-                activeIndex === 1 ? "text-gray-900 opacity-100" : "text-gray-400 opacity-50"
+              className={`transition-all duration-500 ${
+                activeIndex === 1
+                  ? "text-gray-900 opacity-100"
+                  : "text-gray-400 opacity-50"
               }`}
             >
               {textSegments[1]}
@@ -94,15 +102,19 @@ export default function BrandStory() {
 
           <motion.p className="text-xl sm:text-2xl md:text-3xl lg:text-5xl leading-relaxed font-light">
             <span
-              className={`transition-all duration-600 ${
-                activeIndex === 2 ? "text-gray-900 opacity-100" : "text-gray-400 opacity-50"
+              className={`transition-all duration-500 ${
+                activeIndex === 2
+                  ? "text-gray-900 opacity-100"
+                  : "text-gray-400 opacity-50"
               }`}
             >
               {textSegments[2]}{" "}
             </span>
             <span
-              className={`transition-all duration-600 ${
-                activeIndex === 3 ? "text-gray-900 opacity-100" : "text-gray-400 opacity-50"
+              className={`transition-all duration-500 ${
+                activeIndex === 3
+                  ? "text-gray-900 opacity-100"
+                  : "text-gray-400 opacity-50"
               }`}
             >
               {textSegments[3]}
@@ -111,7 +123,7 @@ export default function BrandStory() {
         </div>
 
         {/* Image Section */}
-        <div className="relative h-[1300px] md:h-[1100px] sm:h-[900px] order-2 lg:order-2">
+        <div className="relative h-[1300px] md:h-[1100px] sm:h-[900px] order-2">
           {secondSectionImages.map((img, i) => {
             const isLinked = textToImageMap[activeIndex] === i;
 

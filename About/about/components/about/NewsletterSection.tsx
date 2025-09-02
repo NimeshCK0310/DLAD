@@ -13,7 +13,7 @@ export default function NewsletterSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-         
+          {/* Background Gradients */}
           <div className="absolute inset-0 opacity-5">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,_theme(colors.blue.500),_transparent_50%)]" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_75%,_theme(colors.purple.500),_transparent_50%)]" />
@@ -27,7 +27,7 @@ export default function NewsletterSection() {
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
-              Let's stay in{" "}
+              Let&apos;s stay in{" "}
               <motion.span
                 className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
                 animate={{
@@ -69,7 +69,8 @@ export default function NewsletterSection() {
                 className="px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
                 whileHover={{
                   scale: 1.05,
-                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                  boxShadow:
+                    "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
                 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -80,7 +81,7 @@ export default function NewsletterSection() {
         </motion.div>
       </div>
 
-     
+      {/* Decorative Floating Gradients */}
       <motion.div
         className="absolute top-10 left-10 w-24 h-24 bg-gradient-to-br from-blue-300/20 to-purple-300/20 rounded-full blur-2xl"
         animate={{
