@@ -50,16 +50,17 @@ export default function Header() {
         initial={{ y: 0 }}
         animate={{ y: scrollDirection === "down" ? -120 : 0 }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
-        className="max-w-7xl mx-auto px-3 py-4 flex items-center justify-between"
+        className="max-w-7xl mx-auto px-3 py-4 flex items-center justify-between relative"
       >
-        <Logo isScrolled={!isAtTop} />
+        
+        <Logo isScrolled={!isAtTop} scrollDirection={scrollDirection} />
 
-      
-        <div className="hidden md:flex items-center gap-6">
+       
+        <div className="hidden md:flex items-center gap-6 justify-end flex-1 pt-8">
           <NavMenu isScrolled={!isAtTop} />
         </div>
 
-    
+       
         <div className="md:hidden">
           <button
             onClick={() => setOpen(!open)}
@@ -71,11 +72,11 @@ export default function Header() {
         </div>
       </motion.div>
 
-      
+    
       <AnimatePresence>
         {open && (
           <>
-           
+       
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.5 }}
@@ -91,7 +92,7 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="fixed top-0 right-0 h-screen w-3/4 bg-white shadow-2xl flex flex-col items-center justify-center gap-8 z-50"
+              className="fixed top-0 right-0 h-screen w-3/4 bg-[#e7e7e8] shadow-2xl flex flex-col items-center justify-center gap-8 z-50"
             >
               {navLinks.map((link, i) => (
                 <motion.a

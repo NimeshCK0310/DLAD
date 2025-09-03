@@ -13,7 +13,7 @@ const fadeInLeft = {
 
 export default function HeroSection() {
   return (
-    <section className="py-14 md:py-5 bg-gray-200 relative">
+    <section className="py-14 md:py-5 bg-[#e7e7e8] relative">
       <motion.div
         variants={fadeInLeft}
         initial="hidden"
