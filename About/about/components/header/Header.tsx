@@ -17,38 +17,49 @@ const navLinks = [
 ];
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState<"up" | "down" | "none">("none");
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isAtTop, setIsAtTop] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const currentScroll = window.scrollY;
+      setIsAtTop(currentScroll === 0);
+
+      if (currentScroll > lastScrollY) {
+        setScrollDirection("down");
+      } else if (currentScroll < lastScrollY) {
+        setScrollDirection("up");
+      }
+
+      setLastScrollY(currentScroll);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   return (
-    <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 duration-100 ${
-        isScrolled
-          ? "bg-transparent "
-          : "bg-transparent"
-      }`}
-    >
-
-      <TopBar isScrolled={isScrolled} />
-
+    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
      
-      <div className="max-w-7xl mx-auto px-1 py-4 flex items-center justify-between">
-        <Logo isScrolled={isScrolled} />
+      {isAtTop && <TopBar isScrolled={!isAtTop} />}
+
+      
+      <motion.div
+        initial={{ y: 0 }}
+        animate={{ y: scrollDirection === "down" ? -120 : 0 }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
+        className="max-w-7xl mx-auto px-3 py-4 flex items-center justify-between"
+      >
+        <Logo isScrolled={!isAtTop} />
 
       
         <div className="hidden md:flex items-center gap-6">
-          <NavMenu isScrolled={isScrolled} />
+          <NavMenu isScrolled={!isAtTop} />
         </div>
 
-     
+    
         <div className="md:hidden">
           <button
             onClick={() => setOpen(!open)}
@@ -58,13 +69,13 @@ export default function Header() {
             {open ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
-      </div>
+      </motion.div>
 
-     
+      
       <AnimatePresence>
         {open && (
           <>
-         
+           
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.5 }}
@@ -74,7 +85,7 @@ export default function Header() {
               onClick={() => setOpen(false)}
             />
 
-          
+      
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
@@ -99,6 +110,6 @@ export default function Header() {
           </>
         )}
       </AnimatePresence>
-    </motion.header>
+    </header>
   );
 }

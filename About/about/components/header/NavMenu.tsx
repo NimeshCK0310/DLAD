@@ -33,15 +33,14 @@ export default function NavMenu({ isScrolled }: { isScrolled: boolean }) {
       className={`hidden md:flex items-center font-medium text-gray-800 border border-white rounded-full overflow-hidden 
         ${
           isScrolled
-            ? "bg-transparent pl-0 pr-1 py-0 shadow-lg" // remove left padding; keep slight right padding
-            : "bg-gray-200 pl-0 pr-1 py-0"
+            ? "bg-transparent pl-0 pr-1 py-4 shadow-lg" // Increased top/bottom padding
+            : "bg-gray-200 pl-0 pr-1 py-4"
         }
       `}
       variants={containerVariants}
       initial="hidden"
       animate="show"
     >
-
       {items.map((item, index) => (
         <motion.div key={item.name} variants={navItemVariants} className="flex">
           <Link
@@ -56,10 +55,10 @@ export default function NavMenu({ isScrolled }: { isScrolled: boolean }) {
         </motion.div>
       ))}
 
-   
+      {/* Divider */}
       <div className="w-px h-8 bg-gray-300" />
 
-    
+      {/* Right side icons */}
       <div className="flex items-center justify-center h-full overflow-hidden rounded-r-full shrink-0 pl-1 pr-4 pt-3">
         <NavIcons />
       </div>
