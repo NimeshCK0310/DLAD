@@ -17,8 +17,8 @@ const containerVariants = {
 
 const RewardsIcon = () => (
   <svg
-    width="20"
-    height="20"
+    width="24"
+    height="24"
     viewBox="0 0 24 24"
     fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +27,12 @@ const RewardsIcon = () => (
   </svg>
 );
 
-export default function NavMenu({ isScrolled }: { isScrolled: boolean }) {
+interface NavMenuProps {
+  isScrolled: boolean;
+  scrollDirection: "up" | "down" | "none";
+}
+
+export default function NavMenu({ isScrolled, scrollDirection }: NavMenuProps) {
   const items = [
     { name: "Shop", href: "/shop" },
     { name: "Behind Rollie", href: "/behind-rollie" },
@@ -42,37 +47,37 @@ export default function NavMenu({ isScrolled }: { isScrolled: boolean }) {
 
   return (
     <motion.nav
-      className={`fixed top-28 right-12 z-50 hidden md:flex items-center font-medium text-gray-800 border border-white/40 
-        ${
-          isScrolled
-            ? "bg-transparent pl-2 pr-1 py-0"
-            : "bg-[#e7e7e8] pl-0 pr-1 py-0"
-        }
-        rounded-2xl
+      className={`fixed top-28 right-12 z-50 hidden md:flex items-center font-normal text-gray-800 border border-white/40  
+        ${isScrolled ? "bg-transparent pl-2 pr-2 py-0" : "bg-[#e7e7e8] pl-2 pr-2 py-0"}
+        rounded-2xl min-w-[700px] h-[80px] transition-all duration-300
       `}
       variants={containerVariants}
       initial="hidden"
       animate="show"
+      style={{
+        y: scrollDirection === "down" ? -100 : 0, // hides nav when scrolling down
+        transition: "all 0.3s ease-in-out",
+      }}
     >
       {items.map((item, index) => {
-        let roundedClasses = "";
-        if (index === 0) roundedClasses = "rounded-l-2xl";
-      
+        const roundedClasses = index === 0 ? "rounded-l-2xl" : "";
         return (
           <motion.div key={item.name} variants={navItemVariants} className="flex">
             <Link
               href={item.href}
-              className={`flex items-center px-6 h-16 min-h-[60px] transition-all duration-200 hover:bg-white hover:text-black ${roundedClasses}`}
+              className={`flex items-center px-8 h-full min-h-[80px] transition-all duration-200 hover:bg-white hover:text-black ${roundedClasses}`}
             >
               {item.icon && <div className="mr-2">{item.icon}</div>}
-              <span className="whitespace-nowrap">{item.name}</span>
+              <span className="whitespace-nowrap text-lg">{item.name}</span>
             </Link>
           </motion.div>
         );
       })}
 
-      <div className="w-px h-8 bg-gray-300" />
+      {/* Divider */}
+      <div className="w-px h-10 bg-gray-300 mx-2" />
 
+      {/* Right icons */}
       <div className="flex items-center justify-center h-full overflow-hidden rounded-r-2xl shrink-0 pl-2 pr-4">
         <NavIcons />
       </div>

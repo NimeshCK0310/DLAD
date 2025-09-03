@@ -27,9 +27,9 @@ export default function Header() {
       const currentScroll = window.scrollY;
       setIsAtTop(currentScroll === 0);
 
-      if (currentScroll > lastScrollY) {
+      if (currentScroll > lastScrollY + 10) {
         setScrollDirection("down");
-      } else if (currentScroll < lastScrollY) {
+      } else if (currentScroll < lastScrollY - 10) {
         setScrollDirection("up");
       }
 
@@ -41,26 +41,26 @@ export default function Header() {
   }, [lastScrollY]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
-     
+    <motion.header
+      className="fixed top-0 left-0 right-0 z-50"
+      initial={{ y: 0 }}
+      animate={{ y: scrollDirection === "down" ? -150 : 0 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+    >
+      {/* Top Bar */}
       {isAtTop && <TopBar isScrolled={!isAtTop} />}
 
-      
-      <motion.div
-        initial={{ y: 0 }}
-        animate={{ y: scrollDirection === "down" ? -120 : 0 }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
-        className="max-w-7xl mx-auto px-3 py-4 flex items-center justify-between relative"
-      >
-        
+      {/* Header container */}
+      <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-[120px]">
+        {/* Logo */}
         <Logo isScrolled={!isAtTop} scrollDirection={scrollDirection} />
 
-       
-        <div className="hidden md:flex items-center gap-6 justify-end flex-1 pt-8">
-          <NavMenu isScrolled={!isAtTop} />
+        {/* Desktop NavMenu */}
+        <div className="hidden md:flex flex-1 justify-end">
+          <NavMenu isScrolled={!isAtTop} scrollDirection={scrollDirection} />
         </div>
 
-       
+        {/* Mobile Menu Button */}
         <div className="md:hidden">
           <button
             onClick={() => setOpen(!open)}
@@ -70,13 +70,12 @@ export default function Header() {
             {open ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
-      </motion.div>
+      </div>
 
-    
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {open && (
           <>
-       
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.5 }}
@@ -85,8 +84,6 @@ export default function Header() {
               className="fixed inset-0 bg-black z-40"
               onClick={() => setOpen(false)}
             />
-
-      
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
@@ -111,6 +108,6 @@ export default function Header() {
           </>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 }
