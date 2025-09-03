@@ -18,7 +18,9 @@ const navLinks = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const [scrollDirection, setScrollDirection] = useState<"up" | "down" | "none">("none");
+  const [scrollDirection, setScrollDirection] = useState<
+    "up" | "down" | "none"
+  >("none");
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isAtTop, setIsAtTop] = useState(true);
 
@@ -47,20 +49,15 @@ export default function Header() {
       animate={{ y: scrollDirection === "down" ? -150 : 0 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
     >
-      {/* Top Bar */}
       {isAtTop && <TopBar isScrolled={!isAtTop} />}
 
-      {/* Header container */}
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-[120px]">
-        {/* Logo */}
         <Logo isScrolled={!isAtTop} scrollDirection={scrollDirection} />
 
-        {/* Desktop NavMenu */}
         <div className="hidden md:flex flex-1 justify-end">
           <NavMenu isScrolled={!isAtTop} scrollDirection={scrollDirection} />
         </div>
 
-        {/* Mobile Menu Button */}
         <div className="md:hidden">
           <button
             onClick={() => setOpen(!open)}
@@ -72,7 +69,6 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
       <AnimatePresence>
         {open && (
           <>

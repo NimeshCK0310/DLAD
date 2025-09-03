@@ -48,22 +48,29 @@ export default function NavMenu({ isScrolled, scrollDirection }: NavMenuProps) {
   return (
     <motion.nav
       className={`fixed top-28 right-12 z-50 hidden md:flex items-center font-normal text-gray-800 border border-white/40
-        ${isScrolled ? "bg-transparent pl-0 pr-2 py-0" : "bg-[#e7e7e8] pl-0 pr-0 py-0"}
+        ${
+          isScrolled
+            ? "bg-transparent pl-0 pr-2 py-0"
+            : "bg-[#e7e7e8] pl-0 pr-1 py-0"
+        }
         rounded-3xl min-w-[650px] h-[78px] transition-all duration-300
       `}
-
       variants={containerVariants}
       initial="hidden"
       animate="show"
       style={{
-        y: scrollDirection === "down" ? -100 : 0, // hides nav when scrolling down
+        y: scrollDirection === "down" ? -100 : 0,
         transition: "all 0.3s ease-in-out",
       }}
     >
       {items.map((item, index) => {
         const roundedClasses = index === 0 ? "rounded-l-2xl" : "";
         return (
-          <motion.div key={item.name} variants={navItemVariants} className="flex">
+          <motion.div
+            key={item.name}
+            variants={navItemVariants}
+            className="flex"
+          >
             <Link
               href={item.href}
               className={`flex items-center px-8 h-full min-h-[78px] transition-all duration-200 hover:bg-white hover:text-black ${roundedClasses}`}
@@ -75,10 +82,8 @@ export default function NavMenu({ isScrolled, scrollDirection }: NavMenuProps) {
         );
       })}
 
-      {/* Divider */}
       <div className="w-px h-10 bg-gray-300 mx-2" />
 
-      {/* Right icons */}
       <div className="flex items-center justify-center h-full overflow-hidden rounded-r-2xl shrink-0 pl-2 pr-6">
         <NavIcons />
       </div>

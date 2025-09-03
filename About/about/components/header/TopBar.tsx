@@ -4,16 +4,14 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function TopBar({ isScrolled }: { isScrolled: boolean }) {
-  // SVG Arrow component
   const Arrow = ({ direction }: { direction: "left" | "right" }) => (
-     <svg
+    <svg
       width="10"
       height="14"
       viewBox="0 0 11 8"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={direction === "left" ? "rotate-180" : ""}
-    
     >
       <path
         fillRule="evenodd"
@@ -34,7 +32,6 @@ export default function TopBar({ isScrolled }: { isScrolled: boolean }) {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0, delay: 0 }}
     >
-      {/* Left Arrow */}
       <motion.button
         type="button"
         className="cursor-pointer text-black pl-1 flex items-center justify-center"
@@ -44,7 +41,6 @@ export default function TopBar({ isScrolled }: { isScrolled: boolean }) {
         <Arrow direction="left" />
       </motion.button>
 
-      {/* Middle Content */}
       <div className="flex items-center gap-2 text-black text-xs  text-center font-semibold">
         <span>
           Add to cart to unlock your free gift 🔓 Limited time only.{" "}
@@ -60,7 +56,6 @@ export default function TopBar({ isScrolled }: { isScrolled: boolean }) {
         </span>
       </div>
 
-      {/* Right Arrow */}
       <motion.button
         type="button"
         className="cursor-pointer text-black pr-1 flex items-center justify-center"
