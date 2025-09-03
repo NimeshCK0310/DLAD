@@ -6,15 +6,14 @@ import { motion } from "framer-motion";
 export default function TopBar({ isScrolled }: { isScrolled: boolean }) {
   // SVG Arrow component
   const Arrow = ({ direction }: { direction: "left" | "right" }) => (
-    <svg
-      width="10" // decreased width
+     <svg
+      width="10"
       height="14"
       viewBox="0 0 11 8"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      style={{
-        transform: direction === "left" ? "rotate(180deg)" : "none",
-      }}
+      className={direction === "left" ? "rotate-180" : ""}
+    
     >
       <path
         fillRule="evenodd"
