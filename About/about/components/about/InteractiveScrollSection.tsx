@@ -143,7 +143,7 @@ export default function RollieScrollAligned() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[110vh] bg-white rounded-3xl  my-0 px-4 sm:px-8 lg:px-24 py-8 pb-10"
+      className="relative min-h-[110vh] bg-white rounded-3xl my-0 px-4 sm:px-8 lg:px-24 py-8 pb-10 mb-24"
     >
       <div className="sticky top-0 h-screen w-full flex flex-col lg:flex-row justify-between items-start gap-8">
         <div className="flex flex-col items-start gap-4 lg:w-1/2">

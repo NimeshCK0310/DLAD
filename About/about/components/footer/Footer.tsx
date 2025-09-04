@@ -20,7 +20,7 @@ const containerVariants: Variants = {
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-white border-t border-gray-200 rounded-t-3xl pt-8">
+    <footer className="bg-white border-t border-gray-200 rounded-t-3xl pt-5">
       <motion.div
         variants={containerVariants}
         initial="hidden"

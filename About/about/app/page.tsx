@@ -18,8 +18,9 @@ export default function About() {
         <CenterdHeroImage />
         <BrandStory />
         <InteractiveScrollSection />
-      </main>
+      
       <Footer />
+      </main>
     </>
   );
 }
