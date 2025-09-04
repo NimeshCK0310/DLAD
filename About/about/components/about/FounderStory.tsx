@@ -44,9 +44,9 @@ const firstSectionImages: FounderImage[] = [
     src: "process-4.jpg",
     alt: "Founder Story 4",
     className:
-      "w-55 h-55 md:w-36 md:h-36 sm:w-32 sm:h-32 rounded-4xl shadow-lg border-4 border-gray-300",
+      "w-58 h-58 md:w-36 md:h-36 sm:w-32 sm:h-32 rounded-4xl shadow-lg border-4 border-gray-300",
     position:
-      "absolute top-[380px] left-65 md:top-[370px] md:left-[160px] sm:top-[380px] sm:left-[35px]",
+      "absolute top-[380px] left-50 md:top-[370px] md:left-50 sm:top-[380px] sm:left-50",
   },
   {
     src: "process-5.jpg",
