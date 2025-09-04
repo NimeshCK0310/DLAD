@@ -9,14 +9,13 @@ const CenteredHeroImage: FC = () => {
 
   return (
     <section className="relative w-screen h-[110vh] bg-[#e7e7e8] flex justify-center items-center overflow-hidden">
-      {/* Image container stays full section size */}
       <div className="relative flex justify-center items-center w-full h-full">
         <div className="relative">
           <Image
             src={src}
             alt={alt}
-            width={900}   // smaller width
-            height={450}  // maintain aspect ratio
+            width={900}
+            height={450}
             className="block max-w-none h-auto"
             priority
           />

@@ -50,7 +50,6 @@ const secondSectionImages: BrandImage[] = [
   },
 ];
 
-// Map scroll steps to image indices
 const textToImageMap: Record<number, number> = {
   0: 0,
   1: 1,
@@ -71,7 +70,7 @@ export default function BrandStory() {
 
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", (v) => {
-      const totalSteps = 6; // total scroll steps
+      const totalSteps = 6;
       const idx = Math.min(Math.floor(v * totalSteps), totalSteps - 1);
       setActiveIndex(idx);
     });
@@ -84,17 +83,12 @@ export default function BrandStory() {
       className="relative min-h-[80vh] pb-0 bg-[#e7e7e8]"
     >
       <div className="bg-gray-200 backdrop-blur-sm p-6 sm:p-8 md:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
-        {/* Text Column */}
         <div className="order-1 flex flex-col space-y-6 md:space-y-8 lg:space-y-10">
-          {/* Changed line gap (space-y) from larger to smaller values */}
-
-          {/* First paragraph: segments 0–1 */}
           <motion.p
             className="font-light leading-relaxed"
-            
             style={{
-              paddingLeft: "3rem", // 🔹 increased padding-left
-              lineHeight: "1.4em", // 🔹 decreased line gap
+              paddingLeft: "3rem",
+              lineHeight: "1.4em",
               fontSize: "2.8rem",
             }}
           >
@@ -112,12 +106,11 @@ export default function BrandStory() {
             ))}
           </motion.p>
 
-          {/* Second paragraph: segments 2–4 */}
           <motion.p
             className="font-light leading-relaxed"
             style={{
-              paddingLeft: "3rem", // 🔹 increased padding-left
-              lineHeight: "1.4em", // 🔹 decreased line gap
+              paddingLeft: "3rem",
+              lineHeight: "1.4em",
               fontSize: "2.8rem",
             }}
           >
@@ -136,7 +129,6 @@ export default function BrandStory() {
           </motion.p>
         </div>
 
-        {/* Images Column */}
         <div className="relative h-[1200px] md:h-[1000px] sm:h-[800px] order-2">
           {secondSectionImages.map((img, i) => {
             const isLinked = textToImageMap[activeIndex] === i;

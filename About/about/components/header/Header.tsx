@@ -51,8 +51,6 @@ export default function Header() {
       {isAtTop && <TopBar isScrolled={!isAtTop} />}
 
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-[120px]">
-        
-
         <div className="hidden md:flex flex-1 justify-end">
           <NavMenu isScrolled={!isAtTop} scrollDirection={scrollDirection} />
         </div>

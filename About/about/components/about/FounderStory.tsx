@@ -58,14 +58,13 @@ const firstSectionImages: FounderImage[] = [
   },
 ];
 
-// 🔹 Updated mapping: Each scroll step corresponds to one image
 const scrollStepToImageMap: Record<number, number> = {
-  0: 0, // segment 1 → process-1
-  1: 0, // segment 2 → process-1
-  2: 1, // segment 3 → process-2
-  3: 2, // segment 3 → process-3
-  4: 3, // after text → process-4
-  5: 4, // after text → process-5
+  0: 0,
+  1: 0,
+  2: 1,
+  3: 2,
+  4: 3,
+  5: 4,
 };
 
 export default function FounderStory() {
@@ -95,12 +94,10 @@ export default function FounderStory() {
       className="relative min-h-[90vh] bg-[#e7e7e8] pt-0 mt-0 pb-20"
     >
       <div className="backdrop-blur-sm grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-12">
-        {/* Images Column */}
         <div className="relative h-[1300px] md:h-[1070px] sm:h-[950px] order-2 xl:order-1 pt-0 lg:col-span-2">
           {firstSectionImages.map((img, i) => {
             const isLinked = scrollStepToImageMap[activeIndex] === i;
 
-            // Individual spotlight for process-4 and process-5
             const isActiveNoText =
               !Object.keys(scrollStepToImageMap).includes(
                 String(activeIndex)
@@ -156,7 +153,6 @@ export default function FounderStory() {
           })}
         </div>
 
-        {/* Text Column */}
         <div
           className="order-1 lg:order-2 flex flex-col space-y-2.3 md:space-y-3.8 lg:space-y-4.8
              pt-4 sm:pt-6 md:pt-8 lg:pt-10

@@ -14,13 +14,12 @@ const fadeInLeft = {
 export default function HeroSection() {
   return (
     <section className="bg-[#e7e7e8] relative pb-0 mb-0">
-      {/* Place text behind images using z-index */}
       <motion.div
         variants={fadeInLeft}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="relative z-0" // <-- changed from z-10 to z-0
+        className="relative z-0"
       >
         <motion.h1
           className="mt-0 text-6xl md:text-[6rem] lg:text-[8rem] text-gray-900 text-left tracking-tight"

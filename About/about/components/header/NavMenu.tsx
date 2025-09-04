@@ -93,9 +93,7 @@ export default function NavMenu({ isScrolled, scrollDirection }: NavMenuProps) {
 
   return (
     <>
-      {/* Desktop Navigation */}
       <div className="fixed top-25 left-12 right-12 z-50 hidden md:flex items-center justify-start">
-        {/* Logo on Left */}
         <motion.div
           initial={{ y: 0, opacity: 1 }}
           animate={{
@@ -115,7 +113,6 @@ export default function NavMenu({ isScrolled, scrollDirection }: NavMenuProps) {
           </Link>
         </motion.div>
 
-        {/* Navbar moved to right */}
         <motion.nav
           className={`flex items-center font-normal text-gray-800 border border-white/40
             ${
@@ -168,7 +165,6 @@ export default function NavMenu({ isScrolled, scrollDirection }: NavMenuProps) {
         </motion.nav>
       </div>
 
-      {/* Mobile Navigation */}
       <div className="md:hidden fixed top-5 right-6 z-50">
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
