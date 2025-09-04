@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 import TopBar from "./TopBar";
-import Logo from "./Logo";
 import NavMenu from "./NavMenu";
 
 const navLinks = [
@@ -52,7 +51,7 @@ export default function Header() {
       {isAtTop && <TopBar isScrolled={!isAtTop} />}
 
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-[120px]">
-        <Logo isScrolled={!isAtTop} scrollDirection={scrollDirection} />
+        
 
         <div className="hidden md:flex flex-1 justify-end">
           <NavMenu isScrolled={!isAtTop} scrollDirection={scrollDirection} />

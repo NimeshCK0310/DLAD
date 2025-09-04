@@ -24,9 +24,11 @@ export default function TopBar({ isScrolled }: { isScrolled: boolean }) {
 
   return (
     <motion.div
-      className={`bg-white border border-white transition-all rounded-full mx-auto max-w-[1425px] mt-6
-        flex items-center justify-between px-4
-        ${isScrolled ? " text-sm" : "py-3.5 text-sm"}
+      className={`bg-white transition-all rounded-full
+        mt-6 flex items-center justify-between
+        mx-3 sm:mx-5 md:mx-11
+        px-4
+        ${isScrolled ? "py-3 text-sm" : "py-3 text-sm"} 
       `}
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -41,12 +43,12 @@ export default function TopBar({ isScrolled }: { isScrolled: boolean }) {
         <Arrow direction="left" />
       </motion.button>
 
-      <div className="flex items-center gap-2 text-black text-xs  text-center font-semibold">
+      <div className="flex items-center gap-2 text-black text-xs text-center font-semibold">
         <span>
           Add to cart to unlock your free gift 🔓 Limited time only.{" "}
           <Link href="/shop">
             <motion.span
-              className=" font-semibold"
+              className="font-semibold"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
