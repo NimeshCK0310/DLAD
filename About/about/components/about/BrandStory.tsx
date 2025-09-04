@@ -77,7 +77,7 @@ export default function BrandStory() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[80vh] pb-0 bg-gray-200"
+      className="relative min-h-[80vh] pb-0 bg-[#e7e7e8]"
     >
       <div className="bg-gray-200 backdrop-blur-sm p-6 sm:p-8 md:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
         <div className="order-1 flex flex-col space-y-8 md:space-y-12 lg:space-y-16">

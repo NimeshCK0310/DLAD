@@ -8,7 +8,7 @@ const CenteredHeroImage: FC = () => {
   const alt: string = "Hero image for the about page";
 
   return (
-    <section className="relative w-screen h-[110vh] bg-gray-200 flex justify-center items-center overflow-hidden">
+    <section className="relative w-screen h-[110vh] bg-[#e7e7e8] flex justify-center items-center overflow-hidden">
       <div className="relative w-full max-w-8xl h-[95vh] -mt-20">
         <Image
           src={src}

@@ -49,9 +49,11 @@ export default function NavMenu({ isScrolled, scrollDirection }: NavMenuProps) {
     <motion.nav
       className={`fixed top-28 right-12 z-50 hidden md:flex items-center font-normal text-gray-800 border border-white/40
         ${
-          isScrolled
-            ? "bg-transparent pl-0 pr-2 py-0"
-            : "bg-[#e7e7e8] pl-0 pr-1 py-0"
+          scrollDirection === "up"
+            ? "backdrop-blur-md bg-white/10" 
+            : isScrolled
+            ? "bg-[#e7e7e8]" 
+            : "bg-[#e7e7e8]" 
         }
         rounded-3xl min-w-[650px] h-[78px] transition-all duration-300
       `}
