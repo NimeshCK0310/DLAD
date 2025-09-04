@@ -68,7 +68,7 @@ const scrollStepToImageMap: Record<number, number> = {
   5: 4, // after text → process-5
 };
 
-export function FounderStory() {
+export default function FounderStory() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
 

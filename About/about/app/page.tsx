@@ -2,8 +2,8 @@
 
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
-import { HeroSection } from "../components/about/HeroSection";
-import { FounderStory } from "../components/about/FounderStory";
+import HeroSection from "../components/about/HeroSection";
+import FounderStory from "../components/about/FounderStory";
 import InteractiveScrollSection from "../components/about/InteractiveScrollSection";
 import BrandStory from "../components/about/BrandStory";
 import CenterdHeroImage from "@/components/about/CenterdHeroImage";

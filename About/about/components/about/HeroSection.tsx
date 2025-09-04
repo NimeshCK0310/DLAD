@@ -11,7 +11,7 @@ const fadeInLeft = {
   },
 };
 
-export function HeroSection() {
+export default function HeroSection() {
   return (
     <section className="bg-[#e7e7e8] relative pb-0 mb-0">
       {/* Place text behind images using z-index */}
