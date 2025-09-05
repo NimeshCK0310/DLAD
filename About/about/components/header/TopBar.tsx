@@ -43,12 +43,23 @@ export default function TopBar({ isScrolled }: { isScrolled: boolean }) {
         <Arrow direction="left" />
       </motion.button>
 
-      <div className="flex items-center gap-2 text-black text-xs text-center font-semibold">
+      {/* ✅ Updated text styles only */}
+      <div
+        className="flex items-center gap-2 text-center"
+        style={{
+          width: "404.01px",
+          height: "16.8px",
+          fontSize: "14px",
+          fontFamily: '"Franklin Gothic", sans-serif',
+          fontWeight: 600,
+          color: "#000000", // contrast Aa 21
+        }}
+      >
         <span>
           Add to cart to unlock your free gift 🔓 Limited time only.{" "}
           <Link href="/shop">
             <motion.span
-              className="font-semibold"
+              style={{ fontWeight: 600 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
