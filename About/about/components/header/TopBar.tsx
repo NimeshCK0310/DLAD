@@ -28,7 +28,8 @@ export default function TopBar({ isScrolled }: { isScrolled: boolean }) {
         mt-6 flex items-center justify-between
         mx-3 sm:mx-5 md:mx-11
         px-4
-        ${isScrolled ? "py-3 text-sm" : "py-3 text-sm"} 
+        ${isScrolled ? "py-3 text-[13px]" : "py-3 text-[13px]"} 
+        font-semibold
       `}
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -43,23 +44,12 @@ export default function TopBar({ isScrolled }: { isScrolled: boolean }) {
         <Arrow direction="left" />
       </motion.button>
 
-      {/* ✅ Updated text styles only */}
-      <div
-        className="flex items-center gap-2 text-center"
-        style={{
-          width: "404.01px",
-          height: "16.8px",
-          fontSize: "14px",
-          fontFamily: '"Franklin Gothic", sans-serif',
-          fontWeight: 600,
-          color: "#000000", // contrast Aa 21
-        }}
-      >
+      <div className="flex items-center gap-2 text-black text-center">
         <span>
           Add to cart to unlock your free gift 🔓 Limited time only.{" "}
           <Link href="/shop">
             <motion.span
-              style={{ fontWeight: 600 }}
+              className="font-bold"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

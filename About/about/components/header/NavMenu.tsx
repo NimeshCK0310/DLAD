@@ -31,18 +31,18 @@ export default function NavMenu({ isScrolled, scrollDirection }: NavMenuProps) {
         <svg
           width="24"
           height="24"
-          viewBox="0 0 24 24"
+          viewBox="0 0 43 25"
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z" />
+          <path d="M42.2642 4.09887L31.0044 20.271L28.85 23.3641C28.4956 23.8732 27.9741 24.2403 27.3772 24.401C26.7803 24.5616 26.1462 24.5055 25.5864 24.2425L22.1854 22.649L15.7155 19.6105L19.1327 14.7001L25.6141 17.7405L36.8653 1.55583L42.2652 4.09887H42.2642ZM27.0459 5.39103L23.6286 10.2985L17.1578 7.26111L5.89986 23.4371L0.5 20.9018L11.7598 4.72863L13.9114 1.63551C14.2662 1.12668 14.7878 0.759764 15.3848 0.59914C15.9817 0.438516 16.6159 0.494443 17.1759 0.757109L20.576 2.35359L27.0459 5.39103Z" />
         </svg>
       ),
     },
   ];
 
   const navIcons = (
-    <motion.div className="flex items-center gap-5">
+    <motion.div className="flex items-center gap-8.5 pr-2">
       <svg
         className="w-7 h-7 cursor-pointer text-gray-600"
         fill="none"
@@ -51,7 +51,7 @@ export default function NavMenu({ isScrolled, scrollDirection }: NavMenuProps) {
         <path
           d="M11 4a7 7 0 1 1-7 7 7 7 0 0 1 7-7z"
           stroke="currentColor"
-          strokeWidth="2"
+          strokeWidth="1.25"
         />
       </svg>
       <svg
@@ -62,7 +62,7 @@ export default function NavMenu({ isScrolled, scrollDirection }: NavMenuProps) {
         <path
           d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
           stroke="currentColor"
-          strokeWidth="2"
+          strokeWidth="1.25"
         />
       </svg>
       <svg
@@ -73,12 +73,12 @@ export default function NavMenu({ isScrolled, scrollDirection }: NavMenuProps) {
         <path
           d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"
           stroke="currentColor"
-          strokeWidth="2"
+          strokeWidth="1.25"
         />
         <path
           d="M6 20v-2c0-2.21 3.58-4 6-4s6 1.79 6 4v2H6z"
           stroke="currentColor"
-          strokeWidth="2"
+          strokeWidth="1.25"
         />
       </svg>
       <motion.div
@@ -93,46 +93,32 @@ export default function NavMenu({ isScrolled, scrollDirection }: NavMenuProps) {
 
   return (
     <>
-      <div className="fixed top-25 left-12 right-12 z-50 hidden md:flex items-center justify-start">
+      {/* Desktop Navbar */}
+      <div className="fixed top-20 left-5 right-0 z-50 hidden md:flex items-center px-6 justify-between pr-15 box-border text-[#15151F] font-[Franklin Gothic] font-normal text-[16px] leading-[22.4px] h-[140px] w-full">
+        {/* Logo on the left */}
         <motion.div
+          className="flex-shrink-0"
           initial={{ y: 0, opacity: 1 }}
           animate={{
-            y: scrollDirection === "down" ? -80 : 0,
+            y: scrollDirection === "down" ? -20 : 0,
             opacity: scrollDirection === "down" ? 0 : 1,
           }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
         >
           <Link href="/">
-            <Image
-              src={logo}
-              alt="Logo"
-              width={105}
-              height={42}
-              className="object-contain c-navigation__logo-svg"
-            />
+            <Image src={logo} alt="Logo" width={115} height={60} className="object-contain" />
           </Link>
         </motion.div>
 
+        {/* Full navbar + icons on the right */}
         <motion.nav
-          className={`flex items-center font-normal text-gray-800 border border-white/40
-            ${
-              scrollDirection === "up"
-                ? "backdrop-blur-md bg-white/10"
-                : isScrolled
-                ? "bg-[#e7e7e8]"
-                : "bg-[#e7e7e8]"
-            }
-            rounded-l-3xl min-w-[580px] h-[68px] transition-all duration-300 ml-auto
-          `}
+          className={`flex items-center font-normal text-gray-800 border border-white/40 
+            ${scrollDirection === "up" ? "backdrop-blur-md bg-white/10" : "bg-[#e7e7e8]"}
+            rounded-3xl min-w-[600px] h-[78px] transition-all duration-300 ml-auto`}
           initial="hidden"
           animate="show"
           variants={{
             hidden: {},
             show: { transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
-          }}
-          style={{
-            y: scrollDirection === "down" ? -80 : 0,
-            transition: "all 0.3s ease-in-out",
           }}
         >
           {navItems.map((item) => (
@@ -146,13 +132,11 @@ export default function NavMenu({ isScrolled, scrollDirection }: NavMenuProps) {
             >
               <Link
                 href={item.href}
-                className={`
-                  flex items-center px-6 h-full min-h-[68px] transition-all duration-200 hover:bg-white hover:text-black
-                  ${item.name === "Shop" ? "hover:rounded-l-3xl" : ""}
-                `}
+                className={`flex items-center px-8 h-full min-h-[78px] transition-all duration-200 hover:bg-white hover:text-black
+                 ${item.name === "Shop" ? "hover:rounded-l-3xl" : item.name === "Rewards"}`}
               >
                 {item.icon && <div className="mr-2">{item.icon}</div>}
-                <span className="whitespace-nowrap text-lg">{item.name}</span>
+                <span className="whitespace-nowrap text-16.5px font-semibold">{item.name}</span>
               </Link>
             </motion.div>
           ))}
@@ -165,6 +149,7 @@ export default function NavMenu({ isScrolled, scrollDirection }: NavMenuProps) {
         </motion.nav>
       </div>
 
+      {/* Mobile Navbar */}
       <div className="md:hidden fixed top-5 right-6 z-50">
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
