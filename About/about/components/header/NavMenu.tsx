@@ -93,23 +93,28 @@ export default function NavMenu({ isScrolled, scrollDirection }: NavMenuProps) {
 
   return (
     <>
-      {/* Desktop Navbar */}
-      <div className="fixed top-20 left-5 right-0 z-50 hidden md:flex items-center px-6 justify-between pr-15 box-border text-[#15151F] font-[Franklin Gothic] font-normal text-[16px] leading-[22.4px] h-[140px] w-full">
-        {/* Logo on the left */}
-        <motion.div
-          className="flex-shrink-0"
-          initial={{ y: 0, opacity: 1 }}
-          animate={{
-            y: scrollDirection === "down" ? -20 : 0,
-            opacity: scrollDirection === "down" ? 0 : 1,
-          }}
-        >
-          <Link href="/">
-            <Image src={logo} alt="Logo" width={115} height={60} className="object-contain" />
-          </Link>
-        </motion.div>
+  
+      <motion.div
+        className="fixed top-20 left-0 right-0 z-50 hidden md:flex items-center px-6 justify-between box-border text-[#15151F] font-[Franklin Gothic] font-normal text-[16px] leading-[22.4px] h-[140px] w-full"
+        initial={{ y: 0, opacity: 1 }}
+        animate={{
+          y: scrollDirection === "down" ? -150 : 0, // move full navbar up to hide
+          opacity: scrollDirection === "down" ? 0 : 1,
+        }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+      >
+      
+        <Link href="/" className="flex-shrink-0">
+          <Image
+            src={logo}
+            alt="Logo"
+            width={115}
+            height={60}
+            className="object-contain"
+          />
+        </Link>
 
-        {/* Full navbar + icons on the right */}
+    
         <motion.nav
           className={`flex items-center font-normal text-gray-800 border border-white/40 
             ${scrollDirection === "up" ? "backdrop-blur-md bg-white/10" : "bg-[#e7e7e8]"}
@@ -126,7 +131,7 @@ export default function NavMenu({ isScrolled, scrollDirection }: NavMenuProps) {
               key={item.name}
               className="flex"
               variants={{
-                hidden: { opacity: 0, y: -10 },
+                hidden: { opacity: 0, y: -8 },
                 show: { opacity: 1, y: 0, transition: { duration: 0.1 } },
               }}
             >
@@ -136,7 +141,9 @@ export default function NavMenu({ isScrolled, scrollDirection }: NavMenuProps) {
                  ${item.name === "Shop" ? "hover:rounded-l-3xl" : item.name === "Rewards"}`}
               >
                 {item.icon && <div className="mr-2">{item.icon}</div>}
-                <span className="whitespace-nowrap text-16.5px font-semibold">{item.name}</span>
+                <span className="whitespace-nowrap text-16.5px font-semibold">
+                  {item.name}
+                </span>
               </Link>
             </motion.div>
           ))}
@@ -147,9 +154,9 @@ export default function NavMenu({ isScrolled, scrollDirection }: NavMenuProps) {
             {navIcons}
           </div>
         </motion.nav>
-      </div>
+      </motion.div>
 
-      {/* Mobile Navbar */}
+      
       <div className="md:hidden fixed top-5 right-6 z-50">
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
