@@ -3,7 +3,9 @@
 import React from "react";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
+import Image from "next/image";
 import FooterNewsletter from "./FooterNewsletter";
+import logo from "../../public/images/Images1/logo.svg";
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -17,26 +19,34 @@ const itemVariants: Variants = {
 const FooterBrand: React.FC = () => {
   return (
     <motion.div variants={itemVariants} className="lg:col-span-5">
-      <div className="flex items-center mb-6">
+      {/* Logo + Text side by side */}
+      <div className="flex items-center gap-6 mb-8">
         <Link href="/" passHref>
           <motion.div
             whileHover={{ scale: 1.05, rotate: -2 }}
-            className="text-black text-4xl sm:text-5xl font-bold tracking-wide transform -rotate-2 hover:shadow-lg transition-all duration-300 cursor-pointer"
+            className="cursor-pointer flex-shrink-0"
           >
-            rollie
+            <Image
+              src={logo}
+              alt="Rollie Logo"
+              width={120}
+              height={60}
+              className="object-contain"
+            />
           </motion.div>
         </Link>
+
+        <motion.p
+          variants={itemVariants}
+          className="text-gray-700 text-sm sm:text-base leading-relaxed max-w-md"
+        >
+          We are innovators of comfort. Looking good and feeling good
+          shouldn&apos;t be mutually exclusive. Community, culture, comfort or
+          you – no hesitations. We&apos;re all in.
+        </motion.p>
       </div>
 
-      <motion.p
-        variants={itemVariants}
-        className="text-gray-700 text-sm sm:text-base leading-relaxed mb-8"
-      >
-        We are innovators of comfort. Looking good and feeling good
-        shouldn&apos;t be mutually exclusive. Community, culture, comfort or you
-        - no hesitations. We&apos;re all in.
-      </motion.p>
-
+      {/* Newsletter stays below */}
       <FooterNewsletter />
     </motion.div>
   );

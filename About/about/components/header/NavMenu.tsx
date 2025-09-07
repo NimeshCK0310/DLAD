@@ -95,7 +95,7 @@ export default function NavMenu({ isScrolled, scrollDirection }: NavMenuProps) {
     <>
   
       <motion.div
-        className="fixed top-20 left-0 right-0 z-50 hidden md:flex items-center px-6 justify-between box-border text-[#15151F] font-[Franklin Gothic] font-normal text-[16px] leading-[22.4px] h-[140px] w-full"
+        className="fixed top-20 left-5 right-0 z-50 hidden md:flex items-center px-6 justify-between box-border text-[#15151F] font-[Franklin Gothic] font-normal text-[16px] leading-[22.4px] h-[140px] w-full"
         initial={{ y: 0, opacity: 1 }}
         animate={{
           y: scrollDirection === "down" ? -150 : 0, // move full navbar up to hide
