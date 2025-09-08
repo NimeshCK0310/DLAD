@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const linkHover = { x: 5, color: "#10b981", transition: { duration: 0.2 } };
+const linkHover = { x: 4, color: "rgb(21, 21, 31)", transition: { duration: 0.2 } };
 
 export default function FooterHelp() {
   const items = [
@@ -21,14 +21,20 @@ export default function FooterHelp() {
   ];
 
   return (
-    <motion.div variants={{ hidden: {}, show: {} }}>
-      <h5 className="font-bold text-lg text-gray-900 mb-4">Help</h5>
-      <ul className="space-y-3 text-sm">
+    <motion.div
+      variants={{ hidden: {}, show: {} }}
+      className="pt-10 sm:pt-12" // Increased top padding
+    >
+      <h5 className="text-[18px] text-[rgb(21,21,31)] mb-4 tracking-wide font-bold">
+        Help
+      </h5>
+
+      <ul className="space-y-2 text-[16px] leading-[22px]">
         {items.map((item) => (
           <motion.li
             key={item}
             whileHover={linkHover}
-            className="text-gray-600 cursor-pointer transition-colors duration-200"
+            className="text-gray-700 cursor-pointer transition-colors duration-200"
           >
             {item}
           </motion.li>

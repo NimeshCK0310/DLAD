@@ -8,7 +8,10 @@ export default function FooterShop() {
   const items = ["Womens", "Mens", "Gift Card"];
 
   return (
-    <motion.div variants={{ hidden: {}, show: {} }}>
+    <motion.div
+      variants={{ hidden: {}, show: {} }}
+      className="pt-6 sm:pt-8"
+    >
       <h5 className="font-bold text-lg text-gray-900 mb-4">Shop</h5>
       <ul className="space-y-3 text-sm">
         {items.map((item) => (

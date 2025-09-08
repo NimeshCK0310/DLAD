@@ -18,8 +18,10 @@ const itemVariants: Variants = {
 
 const FooterBrand: React.FC = () => {
   return (
-    <motion.div variants={itemVariants} className="lg:col-span-5">
-      {/* Logo + Text side by side */}
+    <motion.div
+      variants={itemVariants}
+      className="lg:col-span-2 row-start-1 mb-10" // spans both columns in row 1
+    >
       <div className="flex items-center gap-6 mb-8">
         <Link href="/" passHref>
           <motion.div
@@ -38,7 +40,7 @@ const FooterBrand: React.FC = () => {
 
         <motion.p
           variants={itemVariants}
-          className="text-gray-700 text-sm sm:text-base leading-relaxed max-w-md"
+          className="text-gray-700 text-sm sm:text-base leading-relaxed max-w-lg"
         >
           We are innovators of comfort. Looking good and feeling good
           shouldn&apos;t be mutually exclusive. Community, culture, comfort or
@@ -46,7 +48,6 @@ const FooterBrand: React.FC = () => {
         </motion.p>
       </div>
 
-      {/* Newsletter stays below */}
       <FooterNewsletter />
     </motion.div>
   );
